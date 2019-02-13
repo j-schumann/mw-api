@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **source_type** | **string** |  | [optional] 
 **creation_date** | **int** |  | [optional] 
 **next_period_date** | **int** |  | [optional] 
+**billing_period** | **int** |  | [optional] 
 **cancellation** | [**\Mittwald\Api\Model\Cancellation**](Cancellation.md) |  | [optional] 
 **account** | [**\Mittwald\Api\Model\CustomerContractAccount**](CustomerContractAccount.md) |  | [optional] 
 

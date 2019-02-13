@@ -1,4 +1,4 @@
-Stand: 2018-11-13
+﻿Stand: 2019-02-13
 ```
 wget http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar swagger.jar
 java -jar swagger.jar generate -i https://doku.mittwald-api.de/swagger-public.json -l php -o mw-api --invoker-package "Mittwald\Api" --api-package Functions --git-user-id vrok --git-repo-id mw-api
@@ -303,6 +303,7 @@ Class | Method | HTTP request | Description
  - [PromotioncodeValidierungsanfrage](docs/Model/PromotioncodeValidierungsanfrage.md)
  - [Reseller](docs/Model/Reseller.md)
  - [SendMailForGDPRContractRequest](docs/Model/SendMailForGDPRContractRequest.md)
+ - [ShopTestAgencyOrderRequest](docs/Model/ShopTestAgencyOrderRequest.md)
  - [Software](docs/Model/Software.md)
  - [SoftwareCategory](docs/Model/SoftwareCategory.md)
  - [SoftwareExtension](docs/Model/SoftwareExtension.md)

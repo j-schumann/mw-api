@@ -2741,14 +2741,16 @@ class KundenApi
      * Accounts eines Kunden
      *
      * @param  int $customer_number Kundennummer (required)
+     * @param  bool $advised Dieser Parameter steuert, ob auch Accounts zurückgeliefert werden sollen, für die eine Verwaltungsfreigabe besteht, aber nicht zur Kundennummer &#x60;{customerNumber}&#x60; gehören.&#39; (optional, default to false)
+     * @param  bool $owned Dieser Parameter steuert, ob Accounts zurückgeliefert werden sollen, die direkt der Kundennummer &#x60;{customerNumber}&#x60; gehören. Dieser Parameter hat standardmäßig den Wert &#x60;true&#x60;; über den Wert &#x60;false&#x60; können in Kombination mit dem Parameter &#x60;advised&#x60; ausschließlich Accounts abgefragt werden, für die eine Verwaltungsfreigabe besteht. (optional, default to true)
      *
      * @throws \Mittwald\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Mittwald\Api\Model\Account[]
      */
-    public function listAccountsByCustomer($customer_number)
+    public function listAccountsByCustomer($customer_number, $advised = 'false', $owned = 'true')
     {
-        list($response) = $this->listAccountsByCustomerWithHttpInfo($customer_number);
+        list($response) = $this->listAccountsByCustomerWithHttpInfo($customer_number, $advised, $owned);
         return $response;
     }
 
@@ -2758,15 +2760,17 @@ class KundenApi
      * Accounts eines Kunden
      *
      * @param  int $customer_number Kundennummer (required)
+     * @param  bool $advised Dieser Parameter steuert, ob auch Accounts zurückgeliefert werden sollen, für die eine Verwaltungsfreigabe besteht, aber nicht zur Kundennummer &#x60;{customerNumber}&#x60; gehören.&#39; (optional, default to false)
+     * @param  bool $owned Dieser Parameter steuert, ob Accounts zurückgeliefert werden sollen, die direkt der Kundennummer &#x60;{customerNumber}&#x60; gehören. Dieser Parameter hat standardmäßig den Wert &#x60;true&#x60;; über den Wert &#x60;false&#x60; können in Kombination mit dem Parameter &#x60;advised&#x60; ausschließlich Accounts abgefragt werden, für die eine Verwaltungsfreigabe besteht. (optional, default to true)
      *
      * @throws \Mittwald\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Mittwald\Api\Model\Account[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listAccountsByCustomerWithHttpInfo($customer_number)
+    public function listAccountsByCustomerWithHttpInfo($customer_number, $advised = 'false', $owned = 'true')
     {
         $returnType = '\Mittwald\Api\Model\Account[]';
-        $request = $this->listAccountsByCustomerRequest($customer_number);
+        $request = $this->listAccountsByCustomerRequest($customer_number, $advised, $owned);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2833,13 +2837,15 @@ class KundenApi
      * Accounts eines Kunden
      *
      * @param  int $customer_number Kundennummer (required)
+     * @param  bool $advised Dieser Parameter steuert, ob auch Accounts zurückgeliefert werden sollen, für die eine Verwaltungsfreigabe besteht, aber nicht zur Kundennummer &#x60;{customerNumber}&#x60; gehören.&#39; (optional, default to false)
+     * @param  bool $owned Dieser Parameter steuert, ob Accounts zurückgeliefert werden sollen, die direkt der Kundennummer &#x60;{customerNumber}&#x60; gehören. Dieser Parameter hat standardmäßig den Wert &#x60;true&#x60;; über den Wert &#x60;false&#x60; können in Kombination mit dem Parameter &#x60;advised&#x60; ausschließlich Accounts abgefragt werden, für die eine Verwaltungsfreigabe besteht. (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listAccountsByCustomerAsync($customer_number)
+    public function listAccountsByCustomerAsync($customer_number, $advised = 'false', $owned = 'true')
     {
-        return $this->listAccountsByCustomerAsyncWithHttpInfo($customer_number)
+        return $this->listAccountsByCustomerAsyncWithHttpInfo($customer_number, $advised, $owned)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2853,14 +2859,16 @@ class KundenApi
      * Accounts eines Kunden
      *
      * @param  int $customer_number Kundennummer (required)
+     * @param  bool $advised Dieser Parameter steuert, ob auch Accounts zurückgeliefert werden sollen, für die eine Verwaltungsfreigabe besteht, aber nicht zur Kundennummer &#x60;{customerNumber}&#x60; gehören.&#39; (optional, default to false)
+     * @param  bool $owned Dieser Parameter steuert, ob Accounts zurückgeliefert werden sollen, die direkt der Kundennummer &#x60;{customerNumber}&#x60; gehören. Dieser Parameter hat standardmäßig den Wert &#x60;true&#x60;; über den Wert &#x60;false&#x60; können in Kombination mit dem Parameter &#x60;advised&#x60; ausschließlich Accounts abgefragt werden, für die eine Verwaltungsfreigabe besteht. (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listAccountsByCustomerAsyncWithHttpInfo($customer_number)
+    public function listAccountsByCustomerAsyncWithHttpInfo($customer_number, $advised = 'false', $owned = 'true')
     {
         $returnType = '\Mittwald\Api\Model\Account[]';
-        $request = $this->listAccountsByCustomerRequest($customer_number);
+        $request = $this->listAccountsByCustomerRequest($customer_number, $advised, $owned);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2903,11 +2911,13 @@ class KundenApi
      * Create request for operation 'listAccountsByCustomer'
      *
      * @param  int $customer_number Kundennummer (required)
+     * @param  bool $advised Dieser Parameter steuert, ob auch Accounts zurückgeliefert werden sollen, für die eine Verwaltungsfreigabe besteht, aber nicht zur Kundennummer &#x60;{customerNumber}&#x60; gehören.&#39; (optional, default to false)
+     * @param  bool $owned Dieser Parameter steuert, ob Accounts zurückgeliefert werden sollen, die direkt der Kundennummer &#x60;{customerNumber}&#x60; gehören. Dieser Parameter hat standardmäßig den Wert &#x60;true&#x60;; über den Wert &#x60;false&#x60; können in Kombination mit dem Parameter &#x60;advised&#x60; ausschließlich Accounts abgefragt werden, für die eine Verwaltungsfreigabe besteht. (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listAccountsByCustomerRequest($customer_number)
+    protected function listAccountsByCustomerRequest($customer_number, $advised = 'false', $owned = 'true')
     {
         // verify the required parameter 'customer_number' is set
         if ($customer_number === null) {
@@ -2923,6 +2933,14 @@ class KundenApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($advised !== null) {
+            $queryParams['advised'] = ObjectSerializer::toQueryValue($advised);
+        }
+        // query params
+        if ($owned !== null) {
+            $queryParams['owned'] = ObjectSerializer::toQueryValue($owned);
+        }
 
         // path params
         if ($customer_number !== null) {

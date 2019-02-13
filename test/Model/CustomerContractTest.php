@@ -134,6 +134,13 @@ class CustomerContractTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "billing_period"
+     */
+    public function testPropertyBillingPeriod()
+    {
+    }
+
+    /**
      * Test attribute "cancellation"
      */
     public function testPropertyCancellation()

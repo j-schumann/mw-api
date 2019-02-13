@@ -65,6 +65,7 @@ class CustomerContract implements ModelInterface, ArrayAccess
         'source_type' => 'string',
         'creation_date' => 'int',
         'next_period_date' => 'int',
+        'billing_period' => 'int',
         'cancellation' => '\Mittwald\Api\Model\Cancellation',
         'account' => '\Mittwald\Api\Model\CustomerContractAccount'
     ];
@@ -83,6 +84,7 @@ class CustomerContract implements ModelInterface, ArrayAccess
         'source_type' => null,
         'creation_date' => null,
         'next_period_date' => null,
+        'billing_period' => null,
         'cancellation' => null,
         'account' => null
     ];
@@ -122,6 +124,7 @@ class CustomerContract implements ModelInterface, ArrayAccess
         'source_type' => 'sourceType',
         'creation_date' => 'creationDate',
         'next_period_date' => 'nextPeriodDate',
+        'billing_period' => 'billingPeriod',
         'cancellation' => 'cancellation',
         'account' => 'account'
     ];
@@ -140,6 +143,7 @@ class CustomerContract implements ModelInterface, ArrayAccess
         'source_type' => 'setSourceType',
         'creation_date' => 'setCreationDate',
         'next_period_date' => 'setNextPeriodDate',
+        'billing_period' => 'setBillingPeriod',
         'cancellation' => 'setCancellation',
         'account' => 'setAccount'
     ];
@@ -158,6 +162,7 @@ class CustomerContract implements ModelInterface, ArrayAccess
         'source_type' => 'getSourceType',
         'creation_date' => 'getCreationDate',
         'next_period_date' => 'getNextPeriodDate',
+        'billing_period' => 'getBillingPeriod',
         'cancellation' => 'getCancellation',
         'account' => 'getAccount'
     ];
@@ -230,6 +235,7 @@ class CustomerContract implements ModelInterface, ArrayAccess
         $this->container['source_type'] = isset($data['source_type']) ? $data['source_type'] : null;
         $this->container['creation_date'] = isset($data['creation_date']) ? $data['creation_date'] : null;
         $this->container['next_period_date'] = isset($data['next_period_date']) ? $data['next_period_date'] : null;
+        $this->container['billing_period'] = isset($data['billing_period']) ? $data['billing_period'] : null;
         $this->container['cancellation'] = isset($data['cancellation']) ? $data['cancellation'] : null;
         $this->container['account'] = isset($data['account']) ? $data['account'] : null;
     }
@@ -447,6 +453,30 @@ class CustomerContract implements ModelInterface, ArrayAccess
     public function setNextPeriodDate($next_period_date)
     {
         $this->container['next_period_date'] = $next_period_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets billing_period
+     *
+     * @return int
+     */
+    public function getBillingPeriod()
+    {
+        return $this->container['billing_period'];
+    }
+
+    /**
+     * Sets billing_period
+     *
+     * @param int $billing_period billing_period
+     *
+     * @return $this
+     */
+    public function setBillingPeriod($billing_period)
+    {
+        $this->container['billing_period'] = $billing_period;
 
         return $this;
     }

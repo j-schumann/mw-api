@@ -59,7 +59,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listAccountsByCustomer**
-> \Mittwald\Api\Model\Account[] listAccountsByCustomer($customer_number)
+> \Mittwald\Api\Model\Account[] listAccountsByCustomer($customer_number, $advised, $owned)
 
 Accounts eines Kunden
 
@@ -76,9 +76,11 @@ $apiInstance = new Mittwald\Api\Api\AccountsApi(
     new GuzzleHttp\Client()
 );
 $customer_number = 56; // int | Kundennummer
+$advised = false; // bool | Dieser Parameter steuert, ob auch Accounts zurückgeliefert werden sollen, für die eine Verwaltungsfreigabe besteht, aber nicht zur Kundennummer `{customerNumber}` gehören.'
+$owned = true; // bool | Dieser Parameter steuert, ob Accounts zurückgeliefert werden sollen, die direkt der Kundennummer `{customerNumber}` gehören. Dieser Parameter hat standardmäßig den Wert `true`; über den Wert `false` können in Kombination mit dem Parameter `advised` ausschließlich Accounts abgefragt werden, für die eine Verwaltungsfreigabe besteht.
 
 try {
-    $result = $apiInstance->listAccountsByCustomer($customer_number);
+    $result = $apiInstance->listAccountsByCustomer($customer_number, $advised, $owned);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountsApi->listAccountsByCustomer: ', $e->getMessage(), PHP_EOL;
@@ -91,6 +93,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customer_number** | **int**| Kundennummer |
+ **advised** | **bool**| Dieser Parameter steuert, ob auch Accounts zurückgeliefert werden sollen, für die eine Verwaltungsfreigabe besteht, aber nicht zur Kundennummer &#x60;{customerNumber}&#x60; gehören.&#39; | [optional] [default to false]
+ **owned** | **bool**| Dieser Parameter steuert, ob Accounts zurückgeliefert werden sollen, die direkt der Kundennummer &#x60;{customerNumber}&#x60; gehören. Dieser Parameter hat standardmäßig den Wert &#x60;true&#x60;; über den Wert &#x60;false&#x60; können in Kombination mit dem Parameter &#x60;advised&#x60; ausschließlich Accounts abgefragt werden, für die eine Verwaltungsfreigabe besteht. | [optional] [default to true]
 
 ### Return type
 
