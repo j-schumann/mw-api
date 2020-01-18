@@ -426,7 +426,7 @@ $apiInstance = new Mittwald\Api\Api\KundenApi(
     new GuzzleHttp\Client()
 );
 $invoice_number = 56; // int | Rechnungsnummer
-$accept = "accept_example"; // string | Das erwünschte Format (`application/json` oder `application/pdf`)
+$accept = new \stdClass; // object | Das erwünschte Format (`application/json` oder `application/pdf`)
 
 try {
     $result = $apiInstance->getInvoice($invoice_number, $accept);
@@ -442,7 +442,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **invoice_number** | **int**| Rechnungsnummer |
- **accept** | **string**| Das erwünschte Format (&#x60;application/json&#x60; oder &#x60;application/pdf&#x60;) | [optional]
+ **accept** | [**object**](../Model/.md)| Das erwünschte Format (&#x60;application/json&#x60; oder &#x60;application/pdf&#x60;) | [optional]
 
 ### Return type
 

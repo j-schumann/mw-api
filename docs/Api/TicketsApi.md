@@ -27,7 +27,7 @@ $apiInstance = new Mittwald\Api\Api\TicketsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$ticket_identifier = "ticket_identifier_example"; // string | Die Ticket-ID
+$ticket_identifier = new \stdClass; // object | Die Ticket-ID
 $answer = new \Mittwald\Api\Model\TicketAnswerInput(); // \Mittwald\Api\Model\TicketAnswerInput | Die neue Antwort
 
 try {
@@ -43,7 +43,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ticket_identifier** | **string**| Die Ticket-ID |
+ **ticket_identifier** | [**object**](../Model/.md)| Die Ticket-ID |
  **answer** | [**\Mittwald\Api\Model\TicketAnswerInput**](../Model/TicketAnswerInput.md)| Die neue Antwort |
 
 ### Return type
@@ -127,7 +127,7 @@ $apiInstance = new Mittwald\Api\Api\TicketsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$ticket_identifier = "ticket_identifier_example"; // string | Die Ticket-ID
+$ticket_identifier = new \stdClass; // object | Die Ticket-ID
 
 try {
     $result = $apiInstance->listSupportTicketAnswers($ticket_identifier);
@@ -142,7 +142,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ticket_identifier** | **string**| Die Ticket-ID |
+ **ticket_identifier** | [**object**](../Model/.md)| Die Ticket-ID |
 
 ### Return type
 
@@ -176,7 +176,7 @@ $apiInstance = new Mittwald\Api\Api\TicketsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$customer_number = "customer_number_example"; // string | Die Kundennummer
+$customer_number = new \stdClass; // object | Die Kundennummer
 
 try {
     $result = $apiInstance->listSupportTickets($customer_number);
@@ -191,7 +191,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer_number** | **string**| Die Kundennummer |
+ **customer_number** | [**object**](../Model/.md)| Die Kundennummer |
 
 ### Return type
 

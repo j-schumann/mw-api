@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **convertBankDataToSEPA**
-> \Mittwald\Api\Model\Bankdaten convertBankDataToSEPA($bankdaten)
+> object convertBankDataToSEPA($bankdaten)
 
 Konvertiert Bankdaten in das IBAN / BIC Format
 
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Mittwald\Api\Model\Bankdaten**](../Model/Bankdaten.md)
+**object**
 
 ### Authorization
 

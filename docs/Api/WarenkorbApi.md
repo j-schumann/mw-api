@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**deleteCart**](WarenkorbApi.md#deleteCart) | **DELETE** /carts/{cartIdentifier} | Warenkorb löschen
 [**deleteItemFromCart**](WarenkorbApi.md#deleteItemFromCart) | **DELETE** /carts/{cartIdentifier}/items/{itemIdentifier} | Warenkorb-Position löschen
 [**getCart**](WarenkorbApi.md#getCart) | **GET** /carts/{cartIdentifier} | Warenkorb auslesen
+[**recommendCart**](WarenkorbApi.md#recommendCart) | **POST** /carts/{cartIdentifier}/actions/recommend | Warenkorbvorlage für Account-Ausgliederung erstellen
 [**requestSMSVerification**](WarenkorbApi.md#requestSMSVerification) | **POST** /carts/{cartIdentifier}/actions/requestverification | SMS-Verifizierung starten
 [**shareCart**](WarenkorbApi.md#shareCart) | **POST** /carts/{cartIdentifier}/actions/share | Warenkorbvorlage erstellen
 [**updateCart**](WarenkorbApi.md#updateCart) | **PUT** /carts/{cartIdentifier} | Warenkorb bearbeiten
@@ -495,6 +496,57 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cart_identifier** | **string**| Warenkorb ID |
+
+### Return type
+
+[**\Mittwald\Api\Model\Cart**](../Model/Cart.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **recommendCart**
+> \Mittwald\Api\Model\Cart recommendCart($cart_identifier, $payload)
+
+Warenkorbvorlage für Account-Ausgliederung erstellen
+
+Erstellt eine Vorlage aus einem Warenkorb mit Account-Ausgliederung. Vorlagen können nicht bearbeitet werden. Die Vorlage enthält keine Personenbezogenendaten.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$apiInstance = new Mittwald\Api\Api\WarenkorbApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$cart_identifier = "cart_identifier_example"; // string | Warenkorb ID
+$payload = new \Mittwald\Api\Model\EMailDaten(); // \Mittwald\Api\Model\EMailDaten | 
+
+try {
+    $result = $apiInstance->recommendCart($cart_identifier, $payload);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling WarenkorbApi->recommendCart: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cart_identifier** | **string**| Warenkorb ID |
+ **payload** | [**\Mittwald\Api\Model\EMailDaten**](../Model/EMailDaten.md)|  |
 
 ### Return type
 
