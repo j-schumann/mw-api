@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**requestSMSVerification**](WarenkorbApi.md#requestSMSVerification) | **POST** /carts/{cartIdentifier}/actions/requestverification | SMS-Verifizierung starten
 [**shareCart**](WarenkorbApi.md#shareCart) | **POST** /carts/{cartIdentifier}/actions/share | Warenkorbvorlage erstellen
 [**updateCart**](WarenkorbApi.md#updateCart) | **PUT** /carts/{cartIdentifier} | Warenkorb bearbeiten
+[**verifyRecommendCart**](WarenkorbApi.md#verifyRecommendCart) | **POST** /carts/{cartIdentifier}/actions/recommendation/verify | Überprüfe PIN-Code von Empfehlung
 
 
 # **addDomainToCart**
@@ -123,7 +124,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **checkoutOrder**
-> checkoutOrder($cart_identifier)
+> checkoutOrder($cart_identifier, $pin_code)
 
 Bestellung abschließen
 
@@ -140,9 +141,10 @@ $apiInstance = new Mittwald\Api\Api\WarenkorbApi(
     new GuzzleHttp\Client()
 );
 $cart_identifier = "cart_identifier_example"; // string | Warenkorb ID
+$pin_code = new \Mittwald\Api\Model\FormularBody1(); // \Mittwald\Api\Model\FormularBody1 | 
 
 try {
-    $apiInstance->checkoutOrder($cart_identifier);
+    $apiInstance->checkoutOrder($cart_identifier, $pin_code);
 } catch (Exception $e) {
     echo 'Exception when calling WarenkorbApi->checkoutOrder: ', $e->getMessage(), PHP_EOL;
 }
@@ -154,6 +156,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cart_identifier** | **string**| Warenkorb ID |
+ **pin_code** | [**\Mittwald\Api\Model\FormularBody1**](../Model/FormularBody1.md)|  | [optional]
 
 ### Return type
 
@@ -221,7 +224,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createCart**
-> \Mittwald\Api\Model\Cart createCart()
+> \Mittwald\Api\Model\Cart createCart($payload)
 
 Warenkorb erstellen
 
@@ -237,9 +240,10 @@ $apiInstance = new Mittwald\Api\Api\WarenkorbApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$payload = new \Mittwald\Api\Model\FormularBody(); // \Mittwald\Api\Model\FormularBody | 
 
 try {
-    $result = $apiInstance->createCart();
+    $result = $apiInstance->createCart($payload);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WarenkorbApi->createCart: ', $e->getMessage(), PHP_EOL;
@@ -248,7 +252,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **payload** | [**\Mittwald\Api\Model\FormularBody**](../Model/FormularBody.md)|  | [optional]
 
 ### Return type
 
@@ -513,7 +520,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **recommendCart**
-> \Mittwald\Api\Model\Cart recommendCart($cart_identifier, $payload)
+> \Mittwald\Api\Model\Recommendation recommendCart($cart_identifier)
 
 Warenkorbvorlage für Account-Ausgliederung erstellen
 
@@ -530,10 +537,9 @@ $apiInstance = new Mittwald\Api\Api\WarenkorbApi(
     new GuzzleHttp\Client()
 );
 $cart_identifier = "cart_identifier_example"; // string | Warenkorb ID
-$payload = new \Mittwald\Api\Model\EMailDaten(); // \Mittwald\Api\Model\EMailDaten | 
 
 try {
-    $result = $apiInstance->recommendCart($cart_identifier, $payload);
+    $result = $apiInstance->recommendCart($cart_identifier);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WarenkorbApi->recommendCart: ', $e->getMessage(), PHP_EOL;
@@ -546,11 +552,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cart_identifier** | **string**| Warenkorb ID |
- **payload** | [**\Mittwald\Api\Model\EMailDaten**](../Model/EMailDaten.md)|  |
 
 ### Return type
 
-[**\Mittwald\Api\Model\Cart**](../Model/Cart.md)
+[**\Mittwald\Api\Model\Recommendation**](../Model/Recommendation.md)
 
 ### Authorization
 
@@ -701,6 +706,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Mittwald\Api\Model\Cart**](../Model/Cart.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **verifyRecommendCart**
+> \Mittwald\Api\Model\Message verifyRecommendCart($cart_identifier, $payload)
+
+Überprüfe PIN-Code von Empfehlung
+
+Überprüft den Pin-Code bei einer Empfehlung.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$apiInstance = new Mittwald\Api\Api\WarenkorbApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$cart_identifier = "cart_identifier_example"; // string | Warenkorb ID
+$payload = new \Mittwald\Api\Model\FormularBody2(); // \Mittwald\Api\Model\FormularBody2 | 
+
+try {
+    $result = $apiInstance->verifyRecommendCart($cart_identifier, $payload);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling WarenkorbApi->verifyRecommendCart: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cart_identifier** | **string**| Warenkorb ID |
+ **payload** | [**\Mittwald\Api\Model\FormularBody2**](../Model/FormularBody2.md)|  |
+
+### Return type
+
+[**\Mittwald\Api\Model\Message**](../Model/Message.md)
 
 ### Authorization
 
