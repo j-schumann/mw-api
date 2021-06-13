@@ -1,6 +1,6 @@
 Stand: 2021-06-13
 ```
-wget https://repo1.maven.org/maven2/io/swagger/swagger-codegen-cli/2.4.20/swagger-codegen-cli-2.4.20.jar swagger.jar
+wget https://repo1.maven.org/maven2/io/swagger/swagger-codegen-cli/2.4.20/swagger-codegen-cli-2.4.20.jar -O swagger.jar
 java -jar swagger.jar generate -i https://doku.mittwald-api.de/docs/swagger-public.json -l php -o mw-api --invoker-package "Mittwald\Api" --api-package Functions --git-user-id vrok --git-repo-id mw-api
 ```
 
