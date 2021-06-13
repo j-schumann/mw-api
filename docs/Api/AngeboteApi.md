@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**recommendCart**](AngeboteApi.md#recommendCart) | **POST** /carts/{cartIdentifier}/actions/recommend | Warenkorbvorlage für Account-Ausgliederung erstellen
 [**requestQuote**](AngeboteApi.md#requestQuote) | **POST** /offers | Neues Angebot anfordern
 [**shareCart**](AngeboteApi.md#shareCart) | **POST** /carts/{cartIdentifier}/actions/share | Warenkorbvorlage erstellen
+[**verifyRecommendCart**](AngeboteApi.md#verifyRecommendCart) | **POST** /carts/{cartIdentifier}/actions/recommendation/verify | Überprüfe PIN-Code von Empfehlung
 
 
 # **createQuoteFromCart**
@@ -61,7 +62,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **recommendCart**
-> \Mittwald\Api\Model\Cart recommendCart($cart_identifier, $payload)
+> \Mittwald\Api\Model\Recommendation recommendCart($cart_identifier)
 
 Warenkorbvorlage für Account-Ausgliederung erstellen
 
@@ -78,10 +79,9 @@ $apiInstance = new Mittwald\Api\Api\AngeboteApi(
     new GuzzleHttp\Client()
 );
 $cart_identifier = "cart_identifier_example"; // string | Warenkorb ID
-$payload = new \Mittwald\Api\Model\EMailDaten(); // \Mittwald\Api\Model\EMailDaten | 
 
 try {
-    $result = $apiInstance->recommendCart($cart_identifier, $payload);
+    $result = $apiInstance->recommendCart($cart_identifier);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AngeboteApi->recommendCart: ', $e->getMessage(), PHP_EOL;
@@ -94,11 +94,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cart_identifier** | **string**| Warenkorb ID |
- **payload** | [**\Mittwald\Api\Model\EMailDaten**](../Model/EMailDaten.md)|  |
 
 ### Return type
 
-[**\Mittwald\Api\Model\Cart**](../Model/Cart.md)
+[**\Mittwald\Api\Model\Recommendation**](../Model/Recommendation.md)
 
 ### Authorization
 
@@ -196,6 +195,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Mittwald\Api\Model\Cart**](../Model/Cart.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **verifyRecommendCart**
+> \Mittwald\Api\Model\Message verifyRecommendCart($cart_identifier, $payload)
+
+Überprüfe PIN-Code von Empfehlung
+
+Überprüft den Pin-Code bei einer Empfehlung.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$apiInstance = new Mittwald\Api\Api\AngeboteApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$cart_identifier = "cart_identifier_example"; // string | Warenkorb ID
+$payload = new \Mittwald\Api\Model\FormularBody2(); // \Mittwald\Api\Model\FormularBody2 | 
+
+try {
+    $result = $apiInstance->verifyRecommendCart($cart_identifier, $payload);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AngeboteApi->verifyRecommendCart: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cart_identifier** | **string**| Warenkorb ID |
+ **payload** | [**\Mittwald\Api\Model\FormularBody2**](../Model/FormularBody2.md)|  |
+
+### Return type
+
+[**\Mittwald\Api\Model\Message**](../Model/Message.md)
 
 ### Authorization
 

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**createSubdomain**](DomainsApi.md#createSubdomain) | **POST** /accounts/{accountIdentifier}/domains/{domainIdentifier}/subdomains | Subdomain erstellen
 [**deleteDomain**](DomainsApi.md#deleteDomain) | **DELETE** /accounts/{accountIdentifier}/domains/{domainIdentifier} | Domain löschen/kündigen
 [**deleteSubdomain**](DomainsApi.md#deleteSubdomain) | **DELETE** /accounts/{accountIdentifier}/domains/{domainIdentifier}/subdomains | Subdomain löschen
+[**domainProxyList**](DomainsApi.md#domainProxyList) | **GET** /accounts/{accountIdentifier}/domainsproxies | Domain Proxies eines Accounts
 [**getDomainAuthCode**](DomainsApi.md#getDomainAuthCode) | **GET** /accounts/{accountIdentifier}/domains/{domainIdentifier}/authcode | Auth-Code einer Domain auslesen
 [**getToplevelDomain**](DomainsApi.md#getToplevelDomain) | **GET** /topleveldomains/{topLevelDomainIdentifier} | Toplevel-Domain auslesen
 [**listDomainsByAccount**](DomainsApi.md#listDomainsByAccount) | **GET** /accounts/{accountIdentifier}/domains | Domains eines Accounts auslesen
@@ -205,6 +206,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **domainProxyList**
+> \Mittwald\Api\Model\DomainProxy[] domainProxyList($account_identifier)
+
+Domain Proxies eines Accounts
+
+Zeige alle aktiven Domain Proxies eines Accounts an
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$apiInstance = new Mittwald\Api\Api\DomainsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$account_identifier = "account_identifier_example"; // string | Name oder ID eines Accounts
+
+try {
+    $result = $apiInstance->domainProxyList($account_identifier);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DomainsApi->domainProxyList: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_identifier** | **string**| Name oder ID eines Accounts |
+
+### Return type
+
+[**\Mittwald\Api\Model\DomainProxy[]**](../Model/DomainProxy.md)
 
 ### Authorization
 
