@@ -4,25 +4,24 @@ All URIs are relative to *https://api.mittwald.de/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getBenefitDetails**](KundenApi.md#getBenefitDetails) | **GET** /customers/{customerNumber}/benefits/{benefit} | Details zu einer gebuchten Leistung
-[**getCurrentCustomer**](KundenApi.md#getCurrentCustomer) | **GET** /customer | Details zu dem aktuellem Kunden
-[**getCustomer**](KundenApi.md#getCustomer) | **GET** /customers/{customerNumber} | Kundendetails auslesen
-[**getCustomerBillingRecipient**](KundenApi.md#getCustomerBillingRecipient) | **GET** /customers/{customerNumber}/billingrecipient | Rechungsempfänger auslesen
-[**getCustomerBillingSettings**](KundenApi.md#getCustomerBillingSettings) | **GET** /customers/{customerNumber}/billingsettings | Rechungseinstellungen auslesen
-[**getCustomerContactPerson**](KundenApi.md#getCustomerContactPerson) | **GET** /customers/{customerNumber}/contactperson | Ansprechpartner auslesen
-[**getCustomerContractPartner**](KundenApi.md#getCustomerContractPartner) | **GET** /customers/{customerNumber}/contractpartner | Vertragspartner auslesen
-[**getCustomerPaymentSettings**](KundenApi.md#getCustomerPaymentSettings) | **GET** /customers/{customerNumber}/paymentsettings | Zahlungseinstellungen auslesen
-[**getInvoice**](KundenApi.md#getInvoice) | **GET** /invoices/{invoiceNumber} | Rechnung eines Kunden
-[**getPaymentReceipts**](KundenApi.md#getPaymentReceipts) | **GET** /invoices/{invoiceNumber}/paymentreceipts | Zahlungseingänge einer Rechnung
-[**listAccountsByCustomer**](KundenApi.md#listAccountsByCustomer) | **GET** /customers/{customerNumber}/accounts | Accounts eines Kunden
-[**listInvoicesByCustomer**](KundenApi.md#listInvoicesByCustomer) | **GET** /customers/{customerNumber}/invoices | Rechnungen eines Kunden
-[**resetCustomerBillingRecipient**](KundenApi.md#resetCustomerBillingRecipient) | **DELETE** /customers/{customerNumber}/billingrecipient | Rechnungsempfänger eines Kunden zurücksetzen
-[**updateCustomerBillingRecipient**](KundenApi.md#updateCustomerBillingRecipient) | **PUT** /customers/{customerNumber}/billingrecipient | Rechnungsempfänger ändern
-[**updateCustomerBillingSettings**](KundenApi.md#updateCustomerBillingSettings) | **PUT** /customers/{customerNumber}/billingsettings | Rechnungseinstellungen ändern
-[**updateCustomerContactPerson**](KundenApi.md#updateCustomerContactPerson) | **PUT** /customers/{customerNumber}/contactperson | Ansprechpartner ändern
-[**updateCustomerContractPartner**](KundenApi.md#updateCustomerContractPartner) | **PUT** /customers/{customerNumber}/contractpartner | Vertragspartner ändern
-[**updateCustomerPaymentSettings**](KundenApi.md#updateCustomerPaymentSettings) | **PUT** /customers/{customerNumber}/paymentsettings | Zahlungseinstellungen ändern
-
+[**getBenefitDetails**](KundenApi.md#getbenefitdetails) | **GET** /customers/{customerNumber}/benefits/{benefit} | Details zu einer gebuchten Leistung
+[**getCurrentCustomer**](KundenApi.md#getcurrentcustomer) | **GET** /customer | Details zu dem aktuellem Kunden
+[**getCustomer**](KundenApi.md#getcustomer) | **GET** /customers/{customerNumber} | Kundendetails auslesen
+[**getCustomerBillingRecipient**](KundenApi.md#getcustomerbillingrecipient) | **GET** /customers/{customerNumber}/billingrecipient | Rechungsempfänger auslesen
+[**getCustomerBillingSettings**](KundenApi.md#getcustomerbillingsettings) | **GET** /customers/{customerNumber}/billingsettings | Rechungseinstellungen auslesen
+[**getCustomerContactPerson**](KundenApi.md#getcustomercontactperson) | **GET** /customers/{customerNumber}/contactperson | Ansprechpartner auslesen
+[**getCustomerContractPartner**](KundenApi.md#getcustomercontractpartner) | **GET** /customers/{customerNumber}/contractpartner | Vertragspartner auslesen
+[**getCustomerPaymentSettings**](KundenApi.md#getcustomerpaymentsettings) | **GET** /customers/{customerNumber}/paymentsettings | Zahlungseinstellungen auslesen
+[**getInvoice**](KundenApi.md#getinvoice) | **GET** /invoices/{invoiceNumber} | Rechnung eines Kunden
+[**getPaymentReceipts**](KundenApi.md#getpaymentreceipts) | **GET** /invoices/{invoiceNumber}/paymentreceipts | Zahlungseingänge einer Rechnung
+[**listAccountsByCustomer**](KundenApi.md#listaccountsbycustomer) | **GET** /customers/{customerNumber}/accounts | Accounts eines Kunden
+[**listInvoicesByCustomer**](KundenApi.md#listinvoicesbycustomer) | **GET** /customers/{customerNumber}/invoices | Rechnungen eines Kunden
+[**resetCustomerBillingRecipient**](KundenApi.md#resetcustomerbillingrecipient) | **DELETE** /customers/{customerNumber}/billingrecipient | Rechnungsempfänger eines Kunden zurücksetzen
+[**updateCustomerBillingRecipient**](KundenApi.md#updatecustomerbillingrecipient) | **PUT** /customers/{customerNumber}/billingrecipient | Rechnungsempfänger ändern
+[**updateCustomerBillingSettings**](KundenApi.md#updatecustomerbillingsettings) | **PUT** /customers/{customerNumber}/billingsettings | Rechnungseinstellungen ändern
+[**updateCustomerContactPerson**](KundenApi.md#updatecustomercontactperson) | **PUT** /customers/{customerNumber}/contactperson | Ansprechpartner ändern
+[**updateCustomerContractPartner**](KundenApi.md#updatecustomercontractpartner) | **PUT** /customers/{customerNumber}/contractpartner | Vertragspartner ändern
+[**updateCustomerPaymentSettings**](KundenApi.md#updatecustomerpaymentsettings) | **PUT** /customers/{customerNumber}/paymentsettings | Zahlungseinstellungen ändern
 
 # **getBenefitDetails**
 > \Mittwald\Api\Model\Benefit[] getBenefitDetails($customer_number, $benefit)
@@ -36,7 +35,7 @@ Liefert Details zu einer gebuchten Leistung.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\KundenApi(
+$apiInstance = new Mittwald\Api\Functions\KundenApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -87,7 +86,7 @@ Liefert Details zum aktuellen Kunden.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\KundenApi(
+$apiInstance = new Mittwald\Api\Functions\KundenApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -132,7 +131,7 @@ Diese Ressource enthält Detailinformationen zu einem bestimmten Kunden.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\KundenApi(
+$apiInstance = new Mittwald\Api\Functions\KundenApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -179,7 +178,7 @@ Rechungsempfänger auslesen
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\KundenApi(
+$apiInstance = new Mittwald\Api\Functions\KundenApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -226,7 +225,7 @@ Rechungseinstellungen auslesen
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\KundenApi(
+$apiInstance = new Mittwald\Api\Functions\KundenApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -275,7 +274,7 @@ Diese Operation liefert Details zum Ansprechpartner eines Kunden zurück. Der An
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\KundenApi(
+$apiInstance = new Mittwald\Api\Functions\KundenApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -324,7 +323,7 @@ Diese Operation liefert Details zum Vertragspartner eines Kunden zurück
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\KundenApi(
+$apiInstance = new Mittwald\Api\Functions\KundenApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -371,7 +370,7 @@ Zahlungseinstellungen auslesen
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\KundenApi(
+$apiInstance = new Mittwald\Api\Functions\KundenApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -420,13 +419,13 @@ Diese Ressource repräsentiert eine einzelne Rechnung.  Über den `Accept`-Heade
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\KundenApi(
+$apiInstance = new Mittwald\Api\Functions\KundenApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $invoice_number = 56; // int | Rechnungsnummer
-$accept = new \stdClass; // object | Das erwünschte Format (`application/json` oder `application/pdf`)
+$accept = new \Mittwald\Api\Model\null(); //  | Das erwünschte Format (`application/json` oder `application/pdf`)
 
 try {
     $result = $apiInstance->getInvoice($invoice_number, $accept);
@@ -442,7 +441,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **invoice_number** | **int**| Rechnungsnummer |
- **accept** | [**object**](../Model/.md)| Das erwünschte Format (&#x60;application/json&#x60; oder &#x60;application/pdf&#x60;) | [optional]
+ **accept** | [****](../Model/.md)| Das erwünschte Format (&#x60;application/json&#x60; oder &#x60;application/pdf&#x60;) | [optional]
 
 ### Return type
 
@@ -471,7 +470,7 @@ Liest erfasste Buchungen zu einer bestimmten Rechnung aus
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\KundenApi(
+$apiInstance = new Mittwald\Api\Functions\KundenApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -520,7 +519,7 @@ Diese Ressource enthält eine Sammlung aller Accounts eines Kunden.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\KundenApi(
+$apiInstance = new Mittwald\Api\Functions\KundenApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -543,7 +542,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customer_number** | **int**| Kundennummer |
- **advised** | **bool**| Dieser Parameter steuert, ob auch Accounts zurückgeliefert werden sollen, für die eine Verwaltungsfreigabe besteht, aber nicht zur Kundennummer &#x60;{customerNumber}&#x60; gehören.&#39; | [optional] [default to false]
+ **advised** | **bool**| Dieser Parameter steuert, ob auch Accounts zurückgeliefert werden sollen, für die eine Verwaltungsfreigabe besteht, aber nicht zur Kundennummer &#x60;{customerNumber}&#x60; gehören.&#x27; | [optional] [default to false]
  **owned** | **bool**| Dieser Parameter steuert, ob Accounts zurückgeliefert werden sollen, die direkt der Kundennummer &#x60;{customerNumber}&#x60; gehören. Dieser Parameter hat standardmäßig den Wert &#x60;true&#x60;; über den Wert &#x60;false&#x60; können in Kombination mit dem Parameter &#x60;advised&#x60; ausschließlich Accounts abgefragt werden, für die eine Verwaltungsfreigabe besteht. | [optional] [default to true]
 
 ### Return type
@@ -573,7 +572,7 @@ Diese Ressource enthält eine Sammlung aller Rechnungen eines Kunden
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\KundenApi(
+$apiInstance = new Mittwald\Api\Functions\KundenApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -622,7 +621,7 @@ Diese Operation setzt den Rechnungsempfänger eines Kunden auf den Vertragspartn
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\KundenApi(
+$apiInstance = new Mittwald\Api\Functions\KundenApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -654,12 +653,12 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateCustomerBillingRecipient**
-> \Mittwald\Api\Model\CustomerPartner updateCustomerBillingRecipient($customer_number, $billing_recipient)
+> \Mittwald\Api\Model\CustomerPartner updateCustomerBillingRecipient($body, $customer_number)
 
 Rechnungsempfänger ändern
 
@@ -668,16 +667,16 @@ Rechnungsempfänger ändern
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\KundenApi(
+$apiInstance = new Mittwald\Api\Functions\KundenApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$body = new \Mittwald\Api\Model\CustomerPartner(); // \Mittwald\Api\Model\CustomerPartner | Neuer Rechnungsempfänger
 $customer_number = 56; // int | Kundennummer
-$billing_recipient = new \Mittwald\Api\Model\CustomerPartner(); // \Mittwald\Api\Model\CustomerPartner | Neuer Rechnungsempfänger
 
 try {
-    $result = $apiInstance->updateCustomerBillingRecipient($customer_number, $billing_recipient);
+    $result = $apiInstance->updateCustomerBillingRecipient($body, $customer_number);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling KundenApi->updateCustomerBillingRecipient: ', $e->getMessage(), PHP_EOL;
@@ -689,8 +688,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**\Mittwald\Api\Model\CustomerPartner**](../Model/CustomerPartner.md)| Neuer Rechnungsempfänger |
  **customer_number** | **int**| Kundennummer |
- **billing_recipient** | [**\Mittwald\Api\Model\CustomerPartner**](../Model/CustomerPartner.md)| Neuer Rechnungsempfänger |
 
 ### Return type
 
@@ -702,13 +701,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateCustomerBillingSettings**
-> \Mittwald\Api\Model\CustomerBillingSettings updateCustomerBillingSettings($customer_number, $billing_settings)
+> \Mittwald\Api\Model\CustomerBillingSettings updateCustomerBillingSettings($body, $customer_number)
 
 Rechnungseinstellungen ändern
 
@@ -717,16 +716,16 @@ Rechnungseinstellungen ändern
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\KundenApi(
+$apiInstance = new Mittwald\Api\Functions\KundenApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$body = new \Mittwald\Api\Model\CustomerBillingSettings(); // \Mittwald\Api\Model\CustomerBillingSettings | Neue Zahlungseinstellungen
 $customer_number = 56; // int | Kundennummer
-$billing_settings = new \Mittwald\Api\Model\CustomerBillingSettings(); // \Mittwald\Api\Model\CustomerBillingSettings | Neue Zahlungseinstellungen
 
 try {
-    $result = $apiInstance->updateCustomerBillingSettings($customer_number, $billing_settings);
+    $result = $apiInstance->updateCustomerBillingSettings($body, $customer_number);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling KundenApi->updateCustomerBillingSettings: ', $e->getMessage(), PHP_EOL;
@@ -738,8 +737,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**\Mittwald\Api\Model\CustomerBillingSettings**](../Model/CustomerBillingSettings.md)| Neue Zahlungseinstellungen |
  **customer_number** | **int**| Kundennummer |
- **billing_settings** | [**\Mittwald\Api\Model\CustomerBillingSettings**](../Model/CustomerBillingSettings.md)| Neue Zahlungseinstellungen |
 
 ### Return type
 
@@ -751,13 +750,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateCustomerContactPerson**
-> \Mittwald\Api\Model\CustomerPartner updateCustomerContactPerson($customer_number, $update_contact_person_request)
+> \Mittwald\Api\Model\CustomerPartner updateCustomerContactPerson($body, $customer_number)
 
 Ansprechpartner ändern
 
@@ -768,16 +767,16 @@ Ansprechpartner ändern
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\KundenApi(
+$apiInstance = new Mittwald\Api\Functions\KundenApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$body = new \Mittwald\Api\Model\ContactUpdateRequest(); // \Mittwald\Api\Model\ContactUpdateRequest | Die zu ändernden Ansprechpartnerdaten
 $customer_number = 56; // int | Kundennummer
-$update_contact_person_request = new \Mittwald\Api\Model\ContactUpdateRequest(); // \Mittwald\Api\Model\ContactUpdateRequest | Die zu ändernden Ansprechpartnerdaten
 
 try {
-    $result = $apiInstance->updateCustomerContactPerson($customer_number, $update_contact_person_request);
+    $result = $apiInstance->updateCustomerContactPerson($body, $customer_number);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling KundenApi->updateCustomerContactPerson: ', $e->getMessage(), PHP_EOL;
@@ -789,8 +788,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**\Mittwald\Api\Model\ContactUpdateRequest**](../Model/ContactUpdateRequest.md)| Die zu ändernden Ansprechpartnerdaten |
  **customer_number** | **int**| Kundennummer |
- **update_contact_person_request** | [**\Mittwald\Api\Model\ContactUpdateRequest**](../Model/ContactUpdateRequest.md)| Die zu ändernden Ansprechpartnerdaten |
 
 ### Return type
 
@@ -802,13 +801,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateCustomerContractPartner**
-> \Mittwald\Api\Model\CustomerPartner updateCustomerContractPartner($customer_number, $update_contract_partner_request)
+> \Mittwald\Api\Model\CustomerPartner updateCustomerContractPartner($body, $customer_number)
 
 Vertragspartner ändern
 
@@ -819,16 +818,16 @@ Vertragspartner ändern
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\KundenApi(
+$apiInstance = new Mittwald\Api\Functions\KundenApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$body = new \Mittwald\Api\Model\UpdateContact(); // \Mittwald\Api\Model\UpdateContact | Die zu ändernden Vertragspartnerdaten
 $customer_number = 56; // int | Kundennummer
-$update_contract_partner_request = new \Mittwald\Api\Model\UpdateContact(); // \Mittwald\Api\Model\UpdateContact | Die zu ändernden Vertragspartnerdaten
 
 try {
-    $result = $apiInstance->updateCustomerContractPartner($customer_number, $update_contract_partner_request);
+    $result = $apiInstance->updateCustomerContractPartner($body, $customer_number);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling KundenApi->updateCustomerContractPartner: ', $e->getMessage(), PHP_EOL;
@@ -840,8 +839,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**\Mittwald\Api\Model\UpdateContact**](../Model/UpdateContact.md)| Die zu ändernden Vertragspartnerdaten |
  **customer_number** | **int**| Kundennummer |
- **update_contract_partner_request** | [**\Mittwald\Api\Model\UpdateContact**](../Model/UpdateContact.md)| Die zu ändernden Vertragspartnerdaten |
 
 ### Return type
 
@@ -853,13 +852,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateCustomerPaymentSettings**
-> \Mittwald\Api\Model\CustomerPaymentSettings updateCustomerPaymentSettings($customer_number, $payment_settings)
+> \Mittwald\Api\Model\CustomerPaymentSettings updateCustomerPaymentSettings($body, $customer_number)
 
 Zahlungseinstellungen ändern
 
@@ -868,16 +867,16 @@ Zahlungseinstellungen ändern
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\KundenApi(
+$apiInstance = new Mittwald\Api\Functions\KundenApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$body = new \Mittwald\Api\Model\CustomerPaymentSettings(); // \Mittwald\Api\Model\CustomerPaymentSettings | Neue Zahlungseinstellungen
 $customer_number = 56; // int | Kundennummer
-$payment_settings = new \Mittwald\Api\Model\CustomerPaymentSettings(); // \Mittwald\Api\Model\CustomerPaymentSettings | Neue Zahlungseinstellungen
 
 try {
-    $result = $apiInstance->updateCustomerPaymentSettings($customer_number, $payment_settings);
+    $result = $apiInstance->updateCustomerPaymentSettings($body, $customer_number);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling KundenApi->updateCustomerPaymentSettings: ', $e->getMessage(), PHP_EOL;
@@ -889,8 +888,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**\Mittwald\Api\Model\CustomerPaymentSettings**](../Model/CustomerPaymentSettings.md)| Neue Zahlungseinstellungen |
  **customer_number** | **int**| Kundennummer |
- **payment_settings** | [**\Mittwald\Api\Model\CustomerPaymentSettings**](../Model/CustomerPaymentSettings.md)| Neue Zahlungseinstellungen |
 
 ### Return type
 
@@ -902,7 +901,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

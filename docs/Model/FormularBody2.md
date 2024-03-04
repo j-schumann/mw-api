@@ -7,6 +7,5 @@ Name | Type | Description | Notes
 **source_account** | **string** | Name des Projektes | [optional] 
 **source_reseller** | **string** | Name des Resellers | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

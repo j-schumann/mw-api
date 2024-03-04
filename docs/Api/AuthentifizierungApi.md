@@ -5,13 +5,12 @@ All URIs are relative to *https://api.mittwald.de/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**authenticate**](AuthentifizierungApi.md#authenticate) | **POST** /authenticate | Anforderung eines neuen API-Tokens
-[**createApplicationToken**](AuthentifizierungApi.md#createApplicationToken) | **POST** /authentication/tokens | Hinterlegen von neuen Application-Tokens
-[**deleteApplicationToken**](AuthentifizierungApi.md#deleteApplicationToken) | **DELETE** /authentication/tokens/{uuid} | Löschen von Application-Tokens
-[**listApplicationTokens**](AuthentifizierungApi.md#listApplicationTokens) | **GET** /authentication/tokens | Auslesen von erstellten Application-Tokens
-
+[**createApplicationToken**](AuthentifizierungApi.md#createapplicationtoken) | **POST** /authentication/tokens | Hinterlegen von neuen Application-Tokens
+[**deleteApplicationToken**](AuthentifizierungApi.md#deleteapplicationtoken) | **DELETE** /authentication/tokens/{uuid} | Löschen von Application-Tokens
+[**listApplicationTokens**](AuthentifizierungApi.md#listapplicationtokens) | **GET** /authentication/tokens | Auslesen von erstellten Application-Tokens
 
 # **authenticate**
-> \Mittwald\Api\Model\AuthenticationResponse authenticate($authentication_request)
+> \Mittwald\Api\Model\AuthenticationResponse authenticate($body)
 
 Anforderung eines neuen API-Tokens
 
@@ -22,15 +21,15 @@ Diese Operation erlaubt die Ausstellung eines neuen API-Tokens. Für die Ausstel
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\AuthentifizierungApi(
+$apiInstance = new Mittwald\Api\Functions\AuthentifizierungApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$authentication_request = new \Mittwald\Api\Model\AuthenticationRequest(); // \Mittwald\Api\Model\AuthenticationRequest | Die Zugangsdaten, mit denen die Authentifizierung erfolgen soll.
+$body = new \Mittwald\Api\Model\AuthenticationRequest(); // \Mittwald\Api\Model\AuthenticationRequest | Die Zugangsdaten, mit denen die Authentifizierung erfolgen soll.
 
 try {
-    $result = $apiInstance->authenticate($authentication_request);
+    $result = $apiInstance->authenticate($body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthentifizierungApi->authenticate: ', $e->getMessage(), PHP_EOL;
@@ -42,7 +41,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authentication_request** | [**\Mittwald\Api\Model\AuthenticationRequest**](../Model/AuthenticationRequest.md)| Die Zugangsdaten, mit denen die Authentifizierung erfolgen soll. |
+ **body** | [**\Mittwald\Api\Model\AuthenticationRequest**](../Model/AuthenticationRequest.md)| Die Zugangsdaten, mit denen die Authentifizierung erfolgen soll. |
 
 ### Return type
 
@@ -54,13 +53,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createApplicationToken**
-> \Mittwald\Api\Model\ApplicationTokenResponse createApplicationToken($token)
+> \Mittwald\Api\Model\ApplicationTokenResponse createApplicationToken($body)
 
 Hinterlegen von neuen Application-Tokens
 
@@ -71,15 +70,15 @@ Diese Operation ermöglicht es neue Application-Tokens zu hinterlegen.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\AuthentifizierungApi(
+$apiInstance = new Mittwald\Api\Functions\AuthentifizierungApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$token = new \Mittwald\Api\Model\ApplicationTokenInput(); // \Mittwald\Api\Model\ApplicationTokenInput | Das Token sowie eine optionale Beschreibung
+$body = new \Mittwald\Api\Model\ApplicationTokenInput(); // \Mittwald\Api\Model\ApplicationTokenInput | Das Token sowie eine optionale Beschreibung
 
 try {
-    $result = $apiInstance->createApplicationToken($token);
+    $result = $apiInstance->createApplicationToken($body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AuthentifizierungApi->createApplicationToken: ', $e->getMessage(), PHP_EOL;
@@ -91,7 +90,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **token** | [**\Mittwald\Api\Model\ApplicationTokenInput**](../Model/ApplicationTokenInput.md)| Das Token sowie eine optionale Beschreibung |
+ **body** | [**\Mittwald\Api\Model\ApplicationTokenInput**](../Model/ApplicationTokenInput.md)| Das Token sowie eine optionale Beschreibung |
 
 ### Return type
 
@@ -103,7 +102,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -120,7 +119,7 @@ Diese Operation ermöglicht es Application-Tokens zu löschen.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\AuthentifizierungApi(
+$apiInstance = new Mittwald\Api\Functions\AuthentifizierungApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -152,7 +151,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -168,7 +167,7 @@ Diese Operation liefert alle bisher erstellten Application-Tokens aus.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\AuthentifizierungApi(
+$apiInstance = new Mittwald\Api\Functions\AuthentifizierungApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()

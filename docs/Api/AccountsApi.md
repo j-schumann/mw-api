@@ -4,10 +4,11 @@ All URIs are relative to *https://api.mittwald.de/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAccount**](AccountsApi.md#getAccount) | **GET** /accounts/{accountIdentifier} | Account auslesen
-[**listAccountsByCustomer**](AccountsApi.md#listAccountsByCustomer) | **GET** /customers/{customerNumber}/accounts | Accounts eines Kunden
-[**listSoftwareInstallationsByAccount**](AccountsApi.md#listSoftwareInstallationsByAccount) | **GET** /accounts/{accountIdentifier}/installations | Softwareinstallationen auslesen
-
+[**getAccount**](AccountsApi.md#getaccount) | **GET** /accounts/{accountIdentifier} | Account auslesen
+[**getAccountStatistics**](AccountsApi.md#getaccountstatistics) | **GET** /accounts/{accountIdentifier}/stats | 
+[**getAccountVisitorStatistics**](AccountsApi.md#getaccountvisitorstatistics) | **GET** /accounts/{accountIdentifier}/stats/visitors | 
+[**listAccountsByCustomer**](AccountsApi.md#listaccountsbycustomer) | **GET** /customers/{customerNumber}/accounts | Accounts eines Kunden
+[**listSoftwareInstallationsByAccount**](AccountsApi.md#listsoftwareinstallationsbyaccount) | **GET** /accounts/{accountIdentifier}/installations | Softwareinstallationen auslesen
 
 # **getAccount**
 > \Mittwald\Api\Model\Account getAccount($account_identifier)
@@ -21,7 +22,7 @@ Diese Operation liest genaue Daten eines einzelnen Accounts aus
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\AccountsApi(
+$apiInstance = new Mittwald\Api\Functions\AccountsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -58,6 +59,104 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **getAccountStatistics**
+> \Mittwald\Api\Model\StorageStatistics getAccountStatistics($account_identifier)
+
+
+
+Liefert Statistiken zur Speicherplatzauslastung eines Projekts
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$apiInstance = new Mittwald\Api\Functions\AccountsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$account_identifier = "account_identifier_example"; // string | Name oder ID eines Accounts
+
+try {
+    $result = $apiInstance->getAccountStatistics($account_identifier);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountsApi->getAccountStatistics: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_identifier** | **string**| Name oder ID eines Accounts |
+
+### Return type
+
+[**\Mittwald\Api\Model\StorageStatistics**](../Model/StorageStatistics.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getAccountVisitorStatistics**
+> \Mittwald\Api\Model\VisitorStatistics getAccountVisitorStatistics($account_identifier)
+
+
+
+Liefert Statistiken zu Besucherzahlen eines Projekts
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$apiInstance = new Mittwald\Api\Functions\AccountsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$account_identifier = "account_identifier_example"; // string | Name oder ID eines Accounts
+
+try {
+    $result = $apiInstance->getAccountVisitorStatistics($account_identifier);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountsApi->getAccountVisitorStatistics: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_identifier** | **string**| Name oder ID eines Accounts |
+
+### Return type
+
+[**\Mittwald\Api\Model\VisitorStatistics**](../Model/VisitorStatistics.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **listAccountsByCustomer**
 > \Mittwald\Api\Model\Account[] listAccountsByCustomer($customer_number, $advised, $owned)
 
@@ -70,7 +169,7 @@ Diese Ressource enthält eine Sammlung aller Accounts eines Kunden.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\AccountsApi(
+$apiInstance = new Mittwald\Api\Functions\AccountsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -93,7 +192,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customer_number** | **int**| Kundennummer |
- **advised** | **bool**| Dieser Parameter steuert, ob auch Accounts zurückgeliefert werden sollen, für die eine Verwaltungsfreigabe besteht, aber nicht zur Kundennummer &#x60;{customerNumber}&#x60; gehören.&#39; | [optional] [default to false]
+ **advised** | **bool**| Dieser Parameter steuert, ob auch Accounts zurückgeliefert werden sollen, für die eine Verwaltungsfreigabe besteht, aber nicht zur Kundennummer &#x60;{customerNumber}&#x60; gehören.&#x27; | [optional] [default to false]
  **owned** | **bool**| Dieser Parameter steuert, ob Accounts zurückgeliefert werden sollen, die direkt der Kundennummer &#x60;{customerNumber}&#x60; gehören. Dieser Parameter hat standardmäßig den Wert &#x60;true&#x60;; über den Wert &#x60;false&#x60; können in Kombination mit dem Parameter &#x60;advised&#x60; ausschließlich Accounts abgefragt werden, für die eine Verwaltungsfreigabe besteht. | [optional] [default to true]
 
 ### Return type
@@ -123,7 +222,7 @@ Diese Operation liest alle Softwareinstallationen eines einzelnen Accounts aus
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\AccountsApi(
+$apiInstance = new Mittwald\Api\Functions\AccountsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()

@@ -4,9 +4,8 @@ All URIs are relative to *https://api.mittwald.de/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getPromotionCode**](PromotionCodeApi.md#getPromotionCode) | **GET** /promotioncodes/{promotionCode} | Promotioncode auslesen
-[**verifyPromotionCode**](PromotionCodeApi.md#verifyPromotionCode) | **POST** /promotioncodes/{promotionCode}/actions/validate | Promotioncode validieren
-
+[**getPromotionCode**](PromotionCodeApi.md#getpromotioncode) | **GET** /promotioncodes/{promotionCode} | Promotioncode auslesen
+[**verifyPromotionCode**](PromotionCodeApi.md#verifypromotioncode) | **POST** /promotioncodes/{promotionCode}/actions/validate | Promotioncode validieren
 
 # **getPromotionCode**
 > getPromotionCode($promotion_code)
@@ -20,7 +19,7 @@ Liefert PromotionCode-Details aus
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\PromotionCodeApi(
+$apiInstance = new Mittwald\Api\Functions\PromotionCodeApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -52,12 +51,12 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **verifyPromotionCode**
-> verifyPromotionCode($promotion_code, $data)
+> verifyPromotionCode($body, $promotion_code)
 
 Promotioncode validieren
 
@@ -68,16 +67,16 @@ Validiert einen Promotion-Code für eine Bestellung
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\PromotionCodeApi(
+$apiInstance = new Mittwald\Api\Functions\PromotionCodeApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$body = new \Mittwald\Api\Model\PromotioncodeValidierungsanfrage(); // \Mittwald\Api\Model\PromotioncodeValidierungsanfrage | Die zu bestellenden Artikel und ob der Hauptartikel einen monatliche Abrechnungsperiode hat. Nur die Artikelnummer wird zwingend benötigt.
 $promotion_code = "promotion_code_example"; // string | PromotionCode
-$data = new \Mittwald\Api\Model\PromotioncodeValidierungsanfrage(); // \Mittwald\Api\Model\PromotioncodeValidierungsanfrage | Die zu bestellenden Artikel und ob der Hauptartikel einen monatliche Abrechnungsperiode hat. Nur die Artikelnummer wird zwingend benötigt.
 
 try {
-    $apiInstance->verifyPromotionCode($promotion_code, $data);
+    $apiInstance->verifyPromotionCode($body, $promotion_code);
 } catch (Exception $e) {
     echo 'Exception when calling PromotionCodeApi->verifyPromotionCode: ', $e->getMessage(), PHP_EOL;
 }
@@ -88,8 +87,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**\Mittwald\Api\Model\PromotioncodeValidierungsanfrage**](../Model/PromotioncodeValidierungsanfrage.md)| Die zu bestellenden Artikel und ob der Hauptartikel einen monatliche Abrechnungsperiode hat. Nur die Artikelnummer wird zwingend benötigt. |
  **promotion_code** | **string**| PromotionCode |
- **data** | [**\Mittwald\Api\Model\PromotioncodeValidierungsanfrage**](../Model/PromotioncodeValidierungsanfrage.md)| Die zu bestellenden Artikel und ob der Hauptartikel einen monatliche Abrechnungsperiode hat. Nur die Artikelnummer wird zwingend benötigt. |
 
 ### Return type
 
@@ -101,8 +100,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Content-Type**: */*
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

@@ -4,11 +4,10 @@ All URIs are relative to *https://api.mittwald.de/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getSoftwareInstallation**](SoftwareApi.md#getSoftwareInstallation) | **GET** /installations/{installationIdentifier} | Details einer Softwareinstallation auslesen
-[**listSoftwareInstallationExtensions**](SoftwareApi.md#listSoftwareInstallationExtensions) | **GET** /installations/{installationIdentifier}/extensions | Extensions einer Softwareinstallation auslesen
-[**listSoftwareInstallationsByAccount**](SoftwareApi.md#listSoftwareInstallationsByAccount) | **GET** /accounts/{accountIdentifier}/installations | Softwareinstallationen auslesen
-[**listSoftwares**](SoftwareApi.md#listSoftwares) | **GET** /software | Unterstützte Software auslesen
-
+[**getSoftwareInstallation**](SoftwareApi.md#getsoftwareinstallation) | **GET** /installations/{installationIdentifier} | Details einer Softwareinstallation auslesen
+[**listSoftwareInstallationExtensions**](SoftwareApi.md#listsoftwareinstallationextensions) | **GET** /installations/{installationIdentifier}/extensions | Extensions einer Softwareinstallation auslesen
+[**listSoftwareInstallationsByAccount**](SoftwareApi.md#listsoftwareinstallationsbyaccount) | **GET** /accounts/{accountIdentifier}/installations | Softwareinstallationen auslesen
+[**listSoftwares**](SoftwareApi.md#listsoftwares) | **GET** /software | Unterstützte Software auslesen
 
 # **getSoftwareInstallation**
 > \Mittwald\Api\Model\SoftwareInstallation getSoftwareInstallation($installation_identifier)
@@ -22,7 +21,7 @@ Diese Operation liest Details zu einer ganz bestimmten Softwareinstallation aus
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\SoftwareApi(
+$apiInstance = new Mittwald\Api\Functions\SoftwareApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -71,7 +70,7 @@ Diese Operation liest Extensions aus, die in einer bestimmten Softwareinstallati
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\SoftwareApi(
+$apiInstance = new Mittwald\Api\Functions\SoftwareApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -120,7 +119,7 @@ Diese Operation liest alle Softwareinstallationen eines einzelnen Accounts aus
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\SoftwareApi(
+$apiInstance = new Mittwald\Api\Functions\SoftwareApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -171,7 +170,7 @@ Liest die mögliche Software für eine Neu-Bestellung aus
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\SoftwareApi(
+$apiInstance = new Mittwald\Api\Functions\SoftwareApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()

@@ -10,6 +10,5 @@ Name | Type | Description | Notes
 **sender_address** | **string** |  | [optional] [default to 'support@mittwald.de']
 **sender_name** | **string** |  | [optional] [default to 'Mittwald CM Service']
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

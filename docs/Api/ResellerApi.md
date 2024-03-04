@@ -4,8 +4,7 @@ All URIs are relative to *https://api.mittwald.de/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getReseller**](ResellerApi.md#getReseller) | **GET** /resellers/{resellerIdentifier} | Reseller auslesen
-
+[**getReseller**](ResellerApi.md#getreseller) | **GET** /resellers/{resellerIdentifier} | Reseller auslesen
 
 # **getReseller**
 > \Mittwald\Api\Model\Reseller getReseller($reseller_identifier)
@@ -19,7 +18,7 @@ Diese Operation liest genaue Daten eines einzelnen Resellers aus
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\ResellerApi(
+$apiInstance = new Mittwald\Api\Functions\ResellerApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()

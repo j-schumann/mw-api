@@ -4,14 +4,13 @@ All URIs are relative to *https://api.mittwald.de/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createSubdomain**](SubdomainApi.md#createSubdomain) | **POST** /accounts/{accountIdentifier}/domains/{domainIdentifier}/subdomains | Subdomain erstellen
-[**deleteSubdomain**](SubdomainApi.md#deleteSubdomain) | **DELETE** /accounts/{accountIdentifier}/domains/{domainIdentifier}/subdomains | Subdomain löschen
-[**getSubdomain**](SubdomainApi.md#getSubdomain) | **GET** /accounts/{accountIdentifier}/domains/{domainIdentifier}/subdomains/{subdomainIdentifier} | Subdomain auslesen
-[**listSubdomainsByDomain**](SubdomainApi.md#listSubdomainsByDomain) | **GET** /accounts/{accountIdentifier}/domains/{domainIdentifier}/subdomains | Subdomains eines Accounts auslesen
-
+[**createSubdomain**](SubdomainApi.md#createsubdomain) | **POST** /accounts/{accountIdentifier}/domains/{domainIdentifier}/subdomains | Subdomain erstellen
+[**deleteSubdomain**](SubdomainApi.md#deletesubdomain) | **DELETE** /accounts/{accountIdentifier}/domains/{domainIdentifier}/subdomains | Subdomain löschen
+[**getSubdomain**](SubdomainApi.md#getsubdomain) | **GET** /accounts/{accountIdentifier}/domains/{domainIdentifier}/subdomains/{subdomainIdentifier} | Subdomain auslesen
+[**listSubdomainsByDomain**](SubdomainApi.md#listsubdomainsbydomain) | **GET** /accounts/{accountIdentifier}/domains/{domainIdentifier}/subdomains | Subdomains eines Accounts auslesen
 
 # **createSubdomain**
-> \Mittwald\Api\Model\Subdomain[] createSubdomain($account_identifier, $domain_identifier, $body)
+> \Mittwald\Api\Model\Subdomain[] createSubdomain($body, $account_identifier, $domain_identifier)
 
 Subdomain erstellen
 
@@ -22,17 +21,17 @@ Erstellt eine neue Subdomain
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\SubdomainApi(
+$apiInstance = new Mittwald\Api\Functions\SubdomainApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$body = array(new \Mittwald\Api\Model\SubdomainCreationBody()); // \Mittwald\Api\Model\SubdomainCreationBody[] | Daten der neuen Subdomain
 $account_identifier = "account_identifier_example"; // string | Name oder ID eines Accounts
 $domain_identifier = "domain_identifier_example"; // string | Vollständiger Name der Domain
-$body = array(new \Mittwald\Api\Model\SubdomainCreationBody()); // \Mittwald\Api\Model\SubdomainCreationBody[] | Daten der neuen Subdomain
 
 try {
-    $result = $apiInstance->createSubdomain($account_identifier, $domain_identifier, $body);
+    $result = $apiInstance->createSubdomain($body, $account_identifier, $domain_identifier);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SubdomainApi->createSubdomain: ', $e->getMessage(), PHP_EOL;
@@ -44,9 +43,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**\Mittwald\Api\Model\SubdomainCreationBody[]**](../Model/SubdomainCreationBody.md)| Daten der neuen Subdomain |
  **account_identifier** | **string**| Name oder ID eines Accounts |
  **domain_identifier** | **string**| Vollständiger Name der Domain |
- **body** | [**\Mittwald\Api\Model\SubdomainCreationBody[]**](../Model/SubdomainCreationBody.md)| Daten der neuen Subdomain |
 
 ### Return type
 
@@ -58,7 +57,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -75,7 +74,7 @@ Löscht eine bestehende Subdomain
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\SubdomainApi(
+$apiInstance = new Mittwald\Api\Functions\SubdomainApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -109,7 +108,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -125,7 +124,7 @@ Liefert eine spezifische Subdomain
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\SubdomainApi(
+$apiInstance = new Mittwald\Api\Functions\SubdomainApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -178,7 +177,7 @@ Liefert alle verfügbaren Subdomains eines Accounts
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\SubdomainApi(
+$apiInstance = new Mittwald\Api\Functions\SubdomainApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()

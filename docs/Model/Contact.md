@@ -15,6 +15,5 @@ Name | Type | Description | Notes
 **country** | **string** | iso country short code (ISO 3166-1 alpha-2) | 
 **fax** | **string** |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

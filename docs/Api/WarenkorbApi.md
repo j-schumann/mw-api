@@ -4,25 +4,24 @@ All URIs are relative to *https://api.mittwald.de/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addDomainToCart**](WarenkorbApi.md#addDomainToCart) | **POST** /carts/{cartIdentifier}/domains | Warenkorb-Domainposition hinzufügen
-[**addItemToCart**](WarenkorbApi.md#addItemToCart) | **POST** /carts/{cartIdentifier}/items | Warenkorb-Position hinzufügen
-[**checkoutOrder**](WarenkorbApi.md#checkoutOrder) | **POST** /carts/{cartIdentifier}/actions/checkout | Bestellung abschließen
-[**confirmSMSVerification**](WarenkorbApi.md#confirmSMSVerification) | **POST** /carts/{cartIdentifier}/actions/verify | SMS-Verifizierung bestätigen
-[**createCart**](WarenkorbApi.md#createCart) | **POST** /carts | Warenkorb erstellen
-[**createCartFromTemplate**](WarenkorbApi.md#createCartFromTemplate) | **POST** /carts/{cartIdentifier} | Warenkorb aus Vorlage erstellen
-[**createQuoteFromCart**](WarenkorbApi.md#createQuoteFromCart) | **POST** /carts/{cartIdentifier}/actions/offer | Angebot versenden
-[**deleteCart**](WarenkorbApi.md#deleteCart) | **DELETE** /carts/{cartIdentifier} | Warenkorb löschen
-[**deleteItemFromCart**](WarenkorbApi.md#deleteItemFromCart) | **DELETE** /carts/{cartIdentifier}/items/{itemIdentifier} | Warenkorb-Position löschen
-[**getCart**](WarenkorbApi.md#getCart) | **GET** /carts/{cartIdentifier} | Warenkorb auslesen
-[**recommendCart**](WarenkorbApi.md#recommendCart) | **POST** /carts/{cartIdentifier}/actions/recommend | Warenkorbvorlage für Account-Ausgliederung erstellen
-[**requestSMSVerification**](WarenkorbApi.md#requestSMSVerification) | **POST** /carts/{cartIdentifier}/actions/requestverification | SMS-Verifizierung starten
-[**shareCart**](WarenkorbApi.md#shareCart) | **POST** /carts/{cartIdentifier}/actions/share | Warenkorbvorlage erstellen
-[**updateCart**](WarenkorbApi.md#updateCart) | **PUT** /carts/{cartIdentifier} | Warenkorb bearbeiten
-[**verifyRecommendCart**](WarenkorbApi.md#verifyRecommendCart) | **POST** /carts/{cartIdentifier}/actions/recommendation/verify | Überprüfe PIN-Code von Empfehlung
-
+[**addDomainToCart**](WarenkorbApi.md#adddomaintocart) | **POST** /carts/{cartIdentifier}/domains | Warenkorb-Domainposition hinzufügen
+[**addItemToCart**](WarenkorbApi.md#additemtocart) | **POST** /carts/{cartIdentifier}/items | Warenkorb-Position hinzufügen
+[**checkoutOrder**](WarenkorbApi.md#checkoutorder) | **POST** /carts/{cartIdentifier}/actions/checkout | Bestellung abschließen
+[**confirmSMSVerification**](WarenkorbApi.md#confirmsmsverification) | **POST** /carts/{cartIdentifier}/actions/verify | SMS-Verifizierung bestätigen
+[**createCart**](WarenkorbApi.md#createcart) | **POST** /carts | Warenkorb erstellen
+[**createCartFromTemplate**](WarenkorbApi.md#createcartfromtemplate) | **POST** /carts/{cartIdentifier} | Warenkorb aus Vorlage erstellen
+[**createQuoteFromCart**](WarenkorbApi.md#createquotefromcart) | **POST** /carts/{cartIdentifier}/actions/offer | Angebot versenden
+[**deleteCart**](WarenkorbApi.md#deletecart) | **DELETE** /carts/{cartIdentifier} | Warenkorb löschen
+[**deleteItemFromCart**](WarenkorbApi.md#deleteitemfromcart) | **DELETE** /carts/{cartIdentifier}/items/{itemIdentifier} | Warenkorb-Position löschen
+[**getCart**](WarenkorbApi.md#getcart) | **GET** /carts/{cartIdentifier} | Warenkorb auslesen
+[**recommendCart**](WarenkorbApi.md#recommendcart) | **POST** /carts/{cartIdentifier}/actions/recommend | Warenkorbvorlage für Account-Ausgliederung erstellen
+[**requestSMSVerification**](WarenkorbApi.md#requestsmsverification) | **POST** /carts/{cartIdentifier}/actions/requestverification | SMS-Verifizierung starten
+[**shareCart**](WarenkorbApi.md#sharecart) | **POST** /carts/{cartIdentifier}/actions/share | Warenkorbvorlage erstellen
+[**updateCart**](WarenkorbApi.md#updatecart) | **PUT** /carts/{cartIdentifier} | Warenkorb bearbeiten
+[**verifyRecommendCart**](WarenkorbApi.md#verifyrecommendcart) | **POST** /carts/{cartIdentifier}/actions/recommendation/verify | Überprüfe PIN-Code von Empfehlung
 
 # **addDomainToCart**
-> \Mittwald\Api\Model\Cart addDomainToCart($cart_identifier, $item)
+> \Mittwald\Api\Model\Cart addDomainToCart($body, $cart_identifier)
 
 Warenkorb-Domainposition hinzufügen
 
@@ -33,16 +32,16 @@ Fügt eine Domain dem Warenkorb hinzu
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\WarenkorbApi(
+$apiInstance = new Mittwald\Api\Functions\WarenkorbApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$body = new \Mittwald\Api\Model\DomainItemInput(); // \Mittwald\Api\Model\DomainItemInput | Die hinzuzufügende Domain
 $cart_identifier = "cart_identifier_example"; // string | Warenkorb ID
-$item = new \Mittwald\Api\Model\DomainItemInput(); // \Mittwald\Api\Model\DomainItemInput | Die hinzuzufügende Domain
 
 try {
-    $result = $apiInstance->addDomainToCart($cart_identifier, $item);
+    $result = $apiInstance->addDomainToCart($body, $cart_identifier);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WarenkorbApi->addDomainToCart: ', $e->getMessage(), PHP_EOL;
@@ -54,8 +53,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**\Mittwald\Api\Model\DomainItemInput**](../Model/DomainItemInput.md)| Die hinzuzufügende Domain |
  **cart_identifier** | **string**| Warenkorb ID |
- **item** | [**\Mittwald\Api\Model\DomainItemInput**](../Model/DomainItemInput.md)| Die hinzuzufügende Domain |
 
 ### Return type
 
@@ -67,13 +66,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **addItemToCart**
-> \Mittwald\Api\Model\Cart addItemToCart($cart_identifier, $item)
+> \Mittwald\Api\Model\Cart addItemToCart($body, $cart_identifier)
 
 Warenkorb-Position hinzufügen
 
@@ -84,16 +83,16 @@ Fügt ein neues Item in den Warenkorb
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\WarenkorbApi(
+$apiInstance = new Mittwald\Api\Functions\WarenkorbApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$body = new \Mittwald\Api\Model\CartItemInput(); // \Mittwald\Api\Model\CartItemInput | Das hinzuzufügende Item
 $cart_identifier = "cart_identifier_example"; // string | Warenkorb ID
-$item = new \Mittwald\Api\Model\CartItemInput(); // \Mittwald\Api\Model\CartItemInput | Das hinzuzufügende Item
 
 try {
-    $result = $apiInstance->addItemToCart($cart_identifier, $item);
+    $result = $apiInstance->addItemToCart($body, $cart_identifier);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WarenkorbApi->addItemToCart: ', $e->getMessage(), PHP_EOL;
@@ -105,8 +104,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**\Mittwald\Api\Model\CartItemInput**](../Model/CartItemInput.md)| Das hinzuzufügende Item |
  **cart_identifier** | **string**| Warenkorb ID |
- **item** | [**\Mittwald\Api\Model\CartItemInput**](../Model/CartItemInput.md)| Das hinzuzufügende Item |
 
 ### Return type
 
@@ -118,13 +117,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **checkoutOrder**
-> checkoutOrder($cart_identifier, $pin_code)
+> checkoutOrder($cart_identifier, $body)
 
 Bestellung abschließen
 
@@ -135,16 +134,16 @@ Erzeugt eine Bestellung aus einem Warenkorb
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\WarenkorbApi(
+$apiInstance = new Mittwald\Api\Functions\WarenkorbApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $cart_identifier = "cart_identifier_example"; // string | Warenkorb ID
-$pin_code = new \Mittwald\Api\Model\FormularBody1(); // \Mittwald\Api\Model\FormularBody1 | 
+$body = new \Mittwald\Api\Model\FormularBody1(); // \Mittwald\Api\Model\FormularBody1 | 
 
 try {
-    $apiInstance->checkoutOrder($cart_identifier, $pin_code);
+    $apiInstance->checkoutOrder($cart_identifier, $body);
 } catch (Exception $e) {
     echo 'Exception when calling WarenkorbApi->checkoutOrder: ', $e->getMessage(), PHP_EOL;
 }
@@ -156,7 +155,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cart_identifier** | **string**| Warenkorb ID |
- **pin_code** | [**\Mittwald\Api\Model\FormularBody1**](../Model/FormularBody1.md)|  | [optional]
+ **body** | [**\Mittwald\Api\Model\FormularBody1**](../Model/FormularBody1.md)|  | [optional]
 
 ### Return type
 
@@ -168,13 +167,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Content-Type**: */*
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **confirmSMSVerification**
-> confirmSMSVerification($cart_identifier, $code)
+> confirmSMSVerification($body, $cart_identifier)
 
 SMS-Verifizierung bestätigen
 
@@ -185,16 +184,16 @@ Bestätigt die SMS-Verifizierung.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\WarenkorbApi(
+$apiInstance = new Mittwald\Api\Functions\WarenkorbApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$body = new \Mittwald\Api\Model\Verifizierungscode(); // \Mittwald\Api\Model\Verifizierungscode | Der Verifizierungcode
 $cart_identifier = "cart_identifier_example"; // string | Warenkorb ID
-$code = new \Mittwald\Api\Model\Verifizierungscode(); // \Mittwald\Api\Model\Verifizierungscode | Der Verifizierungcode
 
 try {
-    $apiInstance->confirmSMSVerification($cart_identifier, $code);
+    $apiInstance->confirmSMSVerification($body, $cart_identifier);
 } catch (Exception $e) {
     echo 'Exception when calling WarenkorbApi->confirmSMSVerification: ', $e->getMessage(), PHP_EOL;
 }
@@ -205,8 +204,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**\Mittwald\Api\Model\Verifizierungscode**](../Model/Verifizierungscode.md)| Der Verifizierungcode |
  **cart_identifier** | **string**| Warenkorb ID |
- **code** | [**\Mittwald\Api\Model\Verifizierungscode**](../Model/Verifizierungscode.md)| Der Verifizierungcode |
 
 ### Return type
 
@@ -218,13 +217,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Content-Type**: */*
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createCart**
-> \Mittwald\Api\Model\Cart createCart($payload)
+> \Mittwald\Api\Model\Cart createCart($body)
 
 Warenkorb erstellen
 
@@ -235,15 +234,15 @@ Erstellt einen neuen Warenkorb
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\WarenkorbApi(
+$apiInstance = new Mittwald\Api\Functions\WarenkorbApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$payload = new \Mittwald\Api\Model\FormularBody(); // \Mittwald\Api\Model\FormularBody | 
+$body = new \Mittwald\Api\Model\FormularBody(); // \Mittwald\Api\Model\FormularBody | 
 
 try {
-    $result = $apiInstance->createCart($payload);
+    $result = $apiInstance->createCart($body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WarenkorbApi->createCart: ', $e->getMessage(), PHP_EOL;
@@ -255,7 +254,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payload** | [**\Mittwald\Api\Model\FormularBody**](../Model/FormularBody.md)|  | [optional]
+ **body** | [**\Mittwald\Api\Model\FormularBody**](../Model/FormularBody.md)|  | [optional]
 
 ### Return type
 
@@ -267,7 +266,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -284,7 +283,7 @@ Erstellt einen neuen Warenkorb aus einer Vorlage
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\WarenkorbApi(
+$apiInstance = new Mittwald\Api\Functions\WarenkorbApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -322,7 +321,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createQuoteFromCart**
-> createQuoteFromCart($cart_identifier, $recipient)
+> createQuoteFromCart($body, $cart_identifier)
 
 Angebot versenden
 
@@ -333,16 +332,16 @@ Erzeugt ein Angebot aus einem Warenkorb und verschickt dieses als PDF per Mail a
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\WarenkorbApi(
+$apiInstance = new Mittwald\Api\Functions\WarenkorbApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$body = new \Mittwald\Api\Model\Contact(); // \Mittwald\Api\Model\Contact | Empfänger
 $cart_identifier = "cart_identifier_example"; // string | Warenkorb ID
-$recipient = new \Mittwald\Api\Model\Contact(); // \Mittwald\Api\Model\Contact | Empfänger
 
 try {
-    $apiInstance->createQuoteFromCart($cart_identifier, $recipient);
+    $apiInstance->createQuoteFromCart($body, $cart_identifier);
 } catch (Exception $e) {
     echo 'Exception when calling WarenkorbApi->createQuoteFromCart: ', $e->getMessage(), PHP_EOL;
 }
@@ -353,8 +352,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**\Mittwald\Api\Model\Contact**](../Model/Contact.md)| Empfänger |
  **cart_identifier** | **string**| Warenkorb ID |
- **recipient** | [**\Mittwald\Api\Model\Contact**](../Model/Contact.md)| Empfänger |
 
 ### Return type
 
@@ -366,8 +365,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Content-Type**: */*
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -383,7 +382,7 @@ Löscht einen bestehenden Warenkorb
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\WarenkorbApi(
+$apiInstance = new Mittwald\Api\Functions\WarenkorbApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -415,7 +414,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -431,7 +430,7 @@ Löscht ein Item aus dem Warenkorb
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\WarenkorbApi(
+$apiInstance = new Mittwald\Api\Functions\WarenkorbApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -482,7 +481,7 @@ Liefert einen bestehenden Warenkorb aus
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\WarenkorbApi(
+$apiInstance = new Mittwald\Api\Functions\WarenkorbApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -531,7 +530,7 @@ Erstellt eine Vorlage aus einem Warenkorb mit Account-Ausgliederung. Vorlagen k�
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\WarenkorbApi(
+$apiInstance = new Mittwald\Api\Functions\WarenkorbApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -569,7 +568,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **requestSMSVerification**
-> requestSMSVerification($cart_identifier, $recipient)
+> requestSMSVerification($body, $cart_identifier)
 
 SMS-Verifizierung starten
 
@@ -580,16 +579,16 @@ Fragt eine SMS-Verifizierung an. Der Empfänger erhält eine SMS mit einem Code.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\WarenkorbApi(
+$apiInstance = new Mittwald\Api\Functions\WarenkorbApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$body = new \Mittwald\Api\Model\Verifizierungsanfrage(); // \Mittwald\Api\Model\Verifizierungsanfrage | 
 $cart_identifier = "cart_identifier_example"; // string | Warenkorb ID
-$recipient = new \Mittwald\Api\Model\Verifizierungsanfrage(); // \Mittwald\Api\Model\Verifizierungsanfrage | 
 
 try {
-    $apiInstance->requestSMSVerification($cart_identifier, $recipient);
+    $apiInstance->requestSMSVerification($body, $cart_identifier);
 } catch (Exception $e) {
     echo 'Exception when calling WarenkorbApi->requestSMSVerification: ', $e->getMessage(), PHP_EOL;
 }
@@ -600,8 +599,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**\Mittwald\Api\Model\Verifizierungsanfrage**](../Model/Verifizierungsanfrage.md)|  |
  **cart_identifier** | **string**| Warenkorb ID |
- **recipient** | [**\Mittwald\Api\Model\Verifizierungsanfrage**](../Model/Verifizierungsanfrage.md)|  |
 
 ### Return type
 
@@ -613,8 +612,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Content-Type**: */*
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -630,7 +629,7 @@ Erstellt eine Vorlage aus einem Warenkorb. Vorlagen können nicht bearbeitet wer
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\WarenkorbApi(
+$apiInstance = new Mittwald\Api\Functions\WarenkorbApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -668,7 +667,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateCart**
-> \Mittwald\Api\Model\Cart updateCart($cart_identifier, $cart)
+> \Mittwald\Api\Model\Cart updateCart($body, $cart_identifier)
 
 Warenkorb bearbeiten
 
@@ -679,16 +678,16 @@ Aktualisiert einen bestehenden Warenkorb
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\WarenkorbApi(
+$apiInstance = new Mittwald\Api\Functions\WarenkorbApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$body = new \Mittwald\Api\Model\Cart(); // \Mittwald\Api\Model\Cart | Der neue Warenkorb
 $cart_identifier = "cart_identifier_example"; // string | Warenkorb ID
-$cart = new \Mittwald\Api\Model\Cart(); // \Mittwald\Api\Model\Cart | Der neue Warenkorb
 
 try {
-    $result = $apiInstance->updateCart($cart_identifier, $cart);
+    $result = $apiInstance->updateCart($body, $cart_identifier);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WarenkorbApi->updateCart: ', $e->getMessage(), PHP_EOL;
@@ -700,8 +699,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**\Mittwald\Api\Model\Cart**](../Model/Cart.md)| Der neue Warenkorb |
  **cart_identifier** | **string**| Warenkorb ID |
- **cart** | [**\Mittwald\Api\Model\Cart**](../Model/Cart.md)| Der neue Warenkorb |
 
 ### Return type
 
@@ -713,13 +712,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **verifyRecommendCart**
-> \Mittwald\Api\Model\Message verifyRecommendCart($cart_identifier, $payload)
+> \Mittwald\Api\Model\Message verifyRecommendCart($body, $cart_identifier)
 
 Überprüfe PIN-Code von Empfehlung
 
@@ -730,16 +729,16 @@ No authorization required
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\WarenkorbApi(
+$apiInstance = new Mittwald\Api\Functions\WarenkorbApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$body = new \Mittwald\Api\Model\FormularBody2(); // \Mittwald\Api\Model\FormularBody2 | 
 $cart_identifier = "cart_identifier_example"; // string | Warenkorb ID
-$payload = new \Mittwald\Api\Model\FormularBody2(); // \Mittwald\Api\Model\FormularBody2 | 
 
 try {
-    $result = $apiInstance->verifyRecommendCart($cart_identifier, $payload);
+    $result = $apiInstance->verifyRecommendCart($body, $cart_identifier);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WarenkorbApi->verifyRecommendCart: ', $e->getMessage(), PHP_EOL;
@@ -751,8 +750,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**\Mittwald\Api\Model\FormularBody2**](../Model/FormularBody2.md)|  |
  **cart_identifier** | **string**| Warenkorb ID |
- **payload** | [**\Mittwald\Api\Model\FormularBody2**](../Model/FormularBody2.md)|  |
 
 ### Return type
 
@@ -764,7 +763,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

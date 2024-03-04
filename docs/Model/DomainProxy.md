@@ -10,6 +10,5 @@ Name | Type | Description | Notes
 **destination_account** | [**\Mittwald\Api\Model\DomainProxyDomain**](DomainProxyDomain.md) |  | [optional] 
 **expire_date** | [**\Mittwald\Api\Model\DomainProxyExpireDate**](DomainProxyExpireDate.md) |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

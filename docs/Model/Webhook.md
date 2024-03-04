@@ -10,6 +10,5 @@ Name | Type | Description | Notes
 **headers** | **object** |  | [optional] 
 **parameters** | [**\Mittwald\Api\Model\WebhookParameter**](WebhookParameter.md) |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

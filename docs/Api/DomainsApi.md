@@ -4,18 +4,17 @@ All URIs are relative to *https://api.mittwald.de/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**checkDomainAvailability**](DomainsApi.md#checkDomainAvailability) | **POST** /domains/{domainIdentifier}/actions/check | Domainverfügbarkeit prüfen
-[**createSubdomain**](DomainsApi.md#createSubdomain) | **POST** /accounts/{accountIdentifier}/domains/{domainIdentifier}/subdomains | Subdomain erstellen
-[**deleteDomain**](DomainsApi.md#deleteDomain) | **DELETE** /accounts/{accountIdentifier}/domains/{domainIdentifier} | Domain löschen/kündigen
-[**deleteSubdomain**](DomainsApi.md#deleteSubdomain) | **DELETE** /accounts/{accountIdentifier}/domains/{domainIdentifier}/subdomains | Subdomain löschen
-[**domainProxyList**](DomainsApi.md#domainProxyList) | **GET** /accounts/{accountIdentifier}/domainsproxies | Domain Proxies eines Accounts
-[**getDomainAuthCode**](DomainsApi.md#getDomainAuthCode) | **GET** /accounts/{accountIdentifier}/domains/{domainIdentifier}/authcode | Auth-Code einer Domain auslesen
-[**getToplevelDomain**](DomainsApi.md#getToplevelDomain) | **GET** /topleveldomains/{topLevelDomainIdentifier} | Toplevel-Domain auslesen
-[**listDomainsByAccount**](DomainsApi.md#listDomainsByAccount) | **GET** /accounts/{accountIdentifier}/domains | Domains eines Accounts auslesen
-[**listSubdomainsByDomain**](DomainsApi.md#listSubdomainsByDomain) | **GET** /accounts/{accountIdentifier}/domains/{domainIdentifier}/subdomains | Subdomains eines Accounts auslesen
-[**listToplevelDomains**](DomainsApi.md#listToplevelDomains) | **GET** /topleveldomains | Toplevel-Domains auslesen
-[**registerNewDomain**](DomainsApi.md#registerNewDomain) | **POST** /accounts/{accountIdentifier}/domains | Domain registrieren/Transfer einleiten
-
+[**checkDomainAvailability**](DomainsApi.md#checkdomainavailability) | **POST** /domains/{domainIdentifier}/actions/check | Domainverfügbarkeit prüfen
+[**createSubdomain**](DomainsApi.md#createsubdomain) | **POST** /accounts/{accountIdentifier}/domains/{domainIdentifier}/subdomains | Subdomain erstellen
+[**deleteDomain**](DomainsApi.md#deletedomain) | **DELETE** /accounts/{accountIdentifier}/domains/{domainIdentifier} | Domain löschen/kündigen
+[**deleteSubdomain**](DomainsApi.md#deletesubdomain) | **DELETE** /accounts/{accountIdentifier}/domains/{domainIdentifier}/subdomains | Subdomain löschen
+[**domainProxyList**](DomainsApi.md#domainproxylist) | **GET** /accounts/{accountIdentifier}/domainsproxies | Domain Proxies eines Accounts
+[**getDomainAuthCode**](DomainsApi.md#getdomainauthcode) | **GET** /accounts/{accountIdentifier}/domains/{domainIdentifier}/authcode | Auth-Code einer Domain auslesen
+[**getToplevelDomain**](DomainsApi.md#gettopleveldomain) | **GET** /topleveldomains/{topLevelDomainIdentifier} | Toplevel-Domain auslesen
+[**listDomainsByAccount**](DomainsApi.md#listdomainsbyaccount) | **GET** /accounts/{accountIdentifier}/domains | Domains eines Accounts auslesen
+[**listSubdomainsByDomain**](DomainsApi.md#listsubdomainsbydomain) | **GET** /accounts/{accountIdentifier}/domains/{domainIdentifier}/subdomains | Subdomains eines Accounts auslesen
+[**listToplevelDomains**](DomainsApi.md#listtopleveldomains) | **GET** /topleveldomains | Toplevel-Domains auslesen
+[**registerNewDomain**](DomainsApi.md#registernewdomain) | **POST** /accounts/{accountIdentifier}/domains | Domain registrieren/Transfer einleiten
 
 # **checkDomainAvailability**
 > checkDomainAvailability($domain_identifier)
@@ -29,7 +28,7 @@ Prüft ob eine Domain verfügbar ist
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\DomainsApi(
+$apiInstance = new Mittwald\Api\Functions\DomainsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -61,12 +60,12 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createSubdomain**
-> \Mittwald\Api\Model\Subdomain[] createSubdomain($account_identifier, $domain_identifier, $body)
+> \Mittwald\Api\Model\Subdomain[] createSubdomain($body, $account_identifier, $domain_identifier)
 
 Subdomain erstellen
 
@@ -77,17 +76,17 @@ Erstellt eine neue Subdomain
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\DomainsApi(
+$apiInstance = new Mittwald\Api\Functions\DomainsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$body = array(new \Mittwald\Api\Model\SubdomainCreationBody()); // \Mittwald\Api\Model\SubdomainCreationBody[] | Daten der neuen Subdomain
 $account_identifier = "account_identifier_example"; // string | Name oder ID eines Accounts
 $domain_identifier = "domain_identifier_example"; // string | Vollständiger Name der Domain
-$body = array(new \Mittwald\Api\Model\SubdomainCreationBody()); // \Mittwald\Api\Model\SubdomainCreationBody[] | Daten der neuen Subdomain
 
 try {
-    $result = $apiInstance->createSubdomain($account_identifier, $domain_identifier, $body);
+    $result = $apiInstance->createSubdomain($body, $account_identifier, $domain_identifier);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DomainsApi->createSubdomain: ', $e->getMessage(), PHP_EOL;
@@ -99,9 +98,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**\Mittwald\Api\Model\SubdomainCreationBody[]**](../Model/SubdomainCreationBody.md)| Daten der neuen Subdomain |
  **account_identifier** | **string**| Name oder ID eines Accounts |
  **domain_identifier** | **string**| Vollständiger Name der Domain |
- **body** | [**\Mittwald\Api\Model\SubdomainCreationBody[]**](../Model/SubdomainCreationBody.md)| Daten der neuen Subdomain |
 
 ### Return type
 
@@ -113,7 +112,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -130,7 +129,7 @@ Löscht bzw. kündigt eine bestehende Domain
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\DomainsApi(
+$apiInstance = new Mittwald\Api\Functions\DomainsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -164,7 +163,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -180,7 +179,7 @@ Löscht eine bestehende Subdomain
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\DomainsApi(
+$apiInstance = new Mittwald\Api\Functions\DomainsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -214,7 +213,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -230,7 +229,7 @@ Zeige alle aktiven Domain Proxies eines Accounts an
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\DomainsApi(
+$apiInstance = new Mittwald\Api\Functions\DomainsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -279,7 +278,7 @@ Liefert den Auth-Code einer Domain
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\DomainsApi(
+$apiInstance = new Mittwald\Api\Functions\DomainsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -330,7 +329,7 @@ Liefert eine Topleveldomain aus
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\DomainsApi(
+$apiInstance = new Mittwald\Api\Functions\DomainsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -381,7 +380,7 @@ Diese Operation liest die Domains eines einzelnen Accounts aus
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\DomainsApi(
+$apiInstance = new Mittwald\Api\Functions\DomainsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -434,7 +433,7 @@ Liefert alle verfügbaren Subdomains eines Accounts
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\DomainsApi(
+$apiInstance = new Mittwald\Api\Functions\DomainsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -485,7 +484,7 @@ Liefert alle möglichen Topleveldomains aus
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\DomainsApi(
+$apiInstance = new Mittwald\Api\Functions\DomainsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -519,7 +518,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **registerNewDomain**
-> \Mittwald\Api\Model\Domain[] registerNewDomain($account_identifier, $body)
+> \Mittwald\Api\Model\Domain[] registerNewDomain($body, $account_identifier)
 
 Domain registrieren/Transfer einleiten
 
@@ -530,16 +529,16 @@ Diese Operation kann genutzt werden, um für den gegebenen Account eine neue Dom
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\DomainsApi(
+$apiInstance = new Mittwald\Api\Functions\DomainsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$account_identifier = "account_identifier_example"; // string | Name oder ID eines Accounts
 $body = new \Mittwald\Api\Model\DomainRegistration(); // \Mittwald\Api\Model\DomainRegistration | Daten für eine Domain-Registrierung
+$account_identifier = "account_identifier_example"; // string | Name oder ID eines Accounts
 
 try {
-    $result = $apiInstance->registerNewDomain($account_identifier, $body);
+    $result = $apiInstance->registerNewDomain($body, $account_identifier);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DomainsApi->registerNewDomain: ', $e->getMessage(), PHP_EOL;
@@ -551,8 +550,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_identifier** | **string**| Name oder ID eines Accounts |
  **body** | [**\Mittwald\Api\Model\DomainRegistration**](../Model/DomainRegistration.md)| Daten für eine Domain-Registrierung |
+ **account_identifier** | **string**| Name oder ID eines Accounts |
 
 ### Return type
 
@@ -564,7 +563,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

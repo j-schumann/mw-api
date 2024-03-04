@@ -4,12 +4,11 @@ All URIs are relative to *https://api.mittwald.de/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancelContract**](KndigungApi.md#cancelContract) | **POST** /cancellations | Kündigung einleiten
-[**resendCancellationConfirmation**](KndigungApi.md#resendCancellationConfirmation) | **POST** /cancellations/{cancellationIdentifier}/actions/confirmationmail | Kündigungsbestätigung erneut senden
-
+[**cancelContract**](KndigungApi.md#cancelcontract) | **POST** /cancellations | Kündigung einleiten
+[**resendCancellationConfirmation**](KndigungApi.md#resendcancellationconfirmation) | **POST** /cancellations/{cancellationIdentifier}/actions/confirmationmail | Kündigungsbestätigung erneut senden
 
 # **cancelContract**
-> cancelContract($cancellation_request)
+> cancelContract($body)
 
 Kündigung einleiten
 
@@ -20,15 +19,15 @@ Leitet die Kündigung für einen bestimmten Tarif ein
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\KndigungApi(
+$apiInstance = new Mittwald\Api\Functions\KndigungApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$cancellation_request = new \Mittwald\Api\Model\CancellationRequest(); // \Mittwald\Api\Model\CancellationRequest | Die Kündigungsdaten
+$body = new \Mittwald\Api\Model\CancellationRequest(); // \Mittwald\Api\Model\CancellationRequest | Die Kündigungsdaten
 
 try {
-    $apiInstance->cancelContract($cancellation_request);
+    $apiInstance->cancelContract($body);
 } catch (Exception $e) {
     echo 'Exception when calling KndigungApi->cancelContract: ', $e->getMessage(), PHP_EOL;
 }
@@ -39,7 +38,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancellation_request** | [**\Mittwald\Api\Model\CancellationRequest**](../Model/CancellationRequest.md)| Die Kündigungsdaten |
+ **body** | [**\Mittwald\Api\Model\CancellationRequest**](../Model/CancellationRequest.md)| Die Kündigungsdaten |
 
 ### Return type
 
@@ -51,7 +50,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -68,7 +67,7 @@ Löst eine erneute Versendung der Kündigungsbestätigung per E-Mail aus
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\KndigungApi(
+$apiInstance = new Mittwald\Api\Functions\KndigungApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -100,7 +99,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

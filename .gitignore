@@ -1,0 +1,19 @@
+###> Development
+swagger.jar
+###< Development
+
+###> composer ###
+vendor
+composer.lock
+###< composer ###
+
+###> friendsofphp/php-cs-fixer ###
+/.php-cs-fixer.cache
+###< friendsofphp/php-cs-fixer ###
+
+###> phpunit/phpunit ###
+.phpunit.cache
+.phpunit.result.cache
+clover.xml
+phpunit.xml
+###< phpunit/phpunit ###

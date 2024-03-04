@@ -10,6 +10,5 @@ Name | Type | Description | Notes
 **external** | **bool** | Gesetzt, wenn es sich um einen Virtual Host Eintrag handeln soll | [optional] 
 **target** | **string** | Bei Virtual Host Einträgen kann direkt das Zielverzeichnis mit angegeben werden | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

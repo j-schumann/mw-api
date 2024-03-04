@@ -4,8 +4,7 @@ All URIs are relative to *https://api.mittwald.de/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listGuestOperatingSystems**](VirtApi.md#listGuestOperatingSystems) | **GET** /virt/guestoperatingsystems | Root-Server Betriebssysteme
-
+[**listGuestOperatingSystems**](VirtApi.md#listguestoperatingsystems) | **GET** /virt/guestoperatingsystems | Root-Server Betriebssysteme
 
 # **listGuestOperatingSystems**
 > \Mittwald\Api\Model\GuestOperatingSystem listGuestOperatingSystems()
@@ -19,7 +18,7 @@ Liefert die zur Installation vorhandenen Root-Server Betriebssysteme
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\VirtApi(
+$apiInstance = new Mittwald\Api\Functions\VirtApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()

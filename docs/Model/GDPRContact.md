@@ -12,6 +12,5 @@ Name | Type | Description | Notes
 **creation_date** | **string** | Das Erstelldatum im UTC Format | [optional] 
 **type** | **string** | Ein frei wählbarer Typ, der optional angegeben werden kann. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

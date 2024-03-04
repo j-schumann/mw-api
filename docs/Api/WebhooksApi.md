@@ -4,15 +4,14 @@ All URIs are relative to *https://api.mittwald.de/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createWebhook**](WebhooksApi.md#createWebhook) | **POST** /webhooks | Registriert einen neuen Webhook
-[**deleteWebhook**](WebhooksApi.md#deleteWebhook) | **DELETE** /webhooks/{webhookIdentifier} | Löscht einen Webhook
-[**getWebhook**](WebhooksApi.md#getWebhook) | **GET** /webhooks/{webhookIdentifier} | Liefert einen bestimmten Webhook
-[**listWebhooks**](WebhooksApi.md#listWebhooks) | **GET** /webhooks | Liefert alle hinterlegten Webhooks
-[**updateWebhook**](WebhooksApi.md#updateWebhook) | **PUT** /webhooks/{webhookIdentifier} | Updated den gewünschten Webhook
-
+[**createWebhook**](WebhooksApi.md#createwebhook) | **POST** /webhooks | Registriert einen neuen Webhook
+[**deleteWebhook**](WebhooksApi.md#deletewebhook) | **DELETE** /webhooks/{webhookIdentifier} | Löscht einen Webhook
+[**getWebhook**](WebhooksApi.md#getwebhook) | **GET** /webhooks/{webhookIdentifier} | Liefert einen bestimmten Webhook
+[**listWebhooks**](WebhooksApi.md#listwebhooks) | **GET** /webhooks | Liefert alle hinterlegten Webhooks
+[**updateWebhook**](WebhooksApi.md#updatewebhook) | **PUT** /webhooks/{webhookIdentifier} | Updated den gewünschten Webhook
 
 # **createWebhook**
-> \Mittwald\Api\Model\Webhook createWebhook($webhook_request)
+> \Mittwald\Api\Model\Webhook createWebhook($body)
 
 Registriert einen neuen Webhook
 
@@ -23,15 +22,15 @@ Registriert einen neuen Webhook für einen bestimmten Login
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\WebhooksApi(
+$apiInstance = new Mittwald\Api\Functions\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$webhook_request = new \Mittwald\Api\Model\Webhook(); // \Mittwald\Api\Model\Webhook | Die Webhook-Konfiguration
+$body = new \Mittwald\Api\Model\Webhook(); // \Mittwald\Api\Model\Webhook | Die Webhook-Konfiguration
 
 try {
-    $result = $apiInstance->createWebhook($webhook_request);
+    $result = $apiInstance->createWebhook($body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->createWebhook: ', $e->getMessage(), PHP_EOL;
@@ -43,7 +42,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhook_request** | [**\Mittwald\Api\Model\Webhook**](../Model/Webhook.md)| Die Webhook-Konfiguration |
+ **body** | [**\Mittwald\Api\Model\Webhook**](../Model/Webhook.md)| Die Webhook-Konfiguration |
 
 ### Return type
 
@@ -55,7 +54,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -72,7 +71,7 @@ Löscht den gegebenen Webhook
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\WebhooksApi(
+$apiInstance = new Mittwald\Api\Functions\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -120,7 +119,7 @@ Liefert die Daten eines bestimmten Webhooks
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\WebhooksApi(
+$apiInstance = new Mittwald\Api\Functions\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -169,7 +168,7 @@ Liefert alle hinterlegten Webhooks eines bestimmten Logins
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\WebhooksApi(
+$apiInstance = new Mittwald\Api\Functions\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -203,7 +202,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateWebhook**
-> \Mittwald\Api\Model\Webhook updateWebhook($webhook_identifier, $webhook_request)
+> \Mittwald\Api\Model\Webhook updateWebhook($body, $webhook_identifier)
 
 Updated den gewünschten Webhook
 
@@ -214,16 +213,16 @@ Updated die Daten des gewünschten Webhooks
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\WebhooksApi(
+$apiInstance = new Mittwald\Api\Functions\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$body = new \Mittwald\Api\Model\Webhook(); // \Mittwald\Api\Model\Webhook | Die Webhook-Konfiguration
 $webhook_identifier = "webhook_identifier_example"; // string | Die ID des Webhooks
-$webhook_request = new \Mittwald\Api\Model\Webhook(); // \Mittwald\Api\Model\Webhook | Die Webhook-Konfiguration
 
 try {
-    $result = $apiInstance->updateWebhook($webhook_identifier, $webhook_request);
+    $result = $apiInstance->updateWebhook($body, $webhook_identifier);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->updateWebhook: ', $e->getMessage(), PHP_EOL;
@@ -235,8 +234,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**\Mittwald\Api\Model\Webhook**](../Model/Webhook.md)| Die Webhook-Konfiguration |
  **webhook_identifier** | **string**| Die ID des Webhooks |
- **webhook_request** | [**\Mittwald\Api\Model\Webhook**](../Model/Webhook.md)| Die Webhook-Konfiguration |
 
 ### Return type
 
@@ -248,7 +247,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

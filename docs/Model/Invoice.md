@@ -9,6 +9,5 @@ Name | Type | Description | Notes
 **gross_total** | [**\Mittwald\Api\Model\InvoiceAmount**](InvoiceAmount.md) |  | 
 **items** | [**\Mittwald\Api\Model\InvoiceItem[]**](InvoiceItem.md) |  | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

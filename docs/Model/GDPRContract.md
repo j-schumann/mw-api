@@ -14,6 +14,5 @@ Name | Type | Description | Notes
 **is_partner_contract** | **bool** |  | [optional] 
 **contract_signer** | **string** | Der vollständige Name des Vertragsunterzeichners | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -8,9 +8,8 @@ Name | Type | Description | Notes
 **title** | **string** | (Akademischer) grad | [optional] 
 **salutation** | **string** | Grußformel, z.B. *Herr* oder *Frau* | 
 **company** | **string** | Firmenname, oder &#x60;null&#x60; | [optional] 
-**address** | [**\Mittwald\Api\Model\CustomerAddress**](CustomerAddress.md) | Die Adresse | 
-**contact** | [**\Mittwald\Api\Model\CustomerContactData**](CustomerContactData.md) | Kontaktdaten | 
+**address** | [**\Mittwald\Api\Model\CustomerAddress**](CustomerAddress.md) |  | 
+**contact** | [**\Mittwald\Api\Model\CustomerContactData**](CustomerContactData.md) |  | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

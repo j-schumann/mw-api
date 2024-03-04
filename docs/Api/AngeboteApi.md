@@ -4,15 +4,14 @@ All URIs are relative to *https://api.mittwald.de/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createQuoteFromCart**](AngeboteApi.md#createQuoteFromCart) | **POST** /carts/{cartIdentifier}/actions/offer | Angebot versenden
-[**recommendCart**](AngeboteApi.md#recommendCart) | **POST** /carts/{cartIdentifier}/actions/recommend | Warenkorbvorlage für Account-Ausgliederung erstellen
-[**requestQuote**](AngeboteApi.md#requestQuote) | **POST** /offers | Neues Angebot anfordern
-[**shareCart**](AngeboteApi.md#shareCart) | **POST** /carts/{cartIdentifier}/actions/share | Warenkorbvorlage erstellen
-[**verifyRecommendCart**](AngeboteApi.md#verifyRecommendCart) | **POST** /carts/{cartIdentifier}/actions/recommendation/verify | Überprüfe PIN-Code von Empfehlung
-
+[**createQuoteFromCart**](AngeboteApi.md#createquotefromcart) | **POST** /carts/{cartIdentifier}/actions/offer | Angebot versenden
+[**recommendCart**](AngeboteApi.md#recommendcart) | **POST** /carts/{cartIdentifier}/actions/recommend | Warenkorbvorlage für Account-Ausgliederung erstellen
+[**requestQuote**](AngeboteApi.md#requestquote) | **POST** /offers | Neues Angebot anfordern
+[**shareCart**](AngeboteApi.md#sharecart) | **POST** /carts/{cartIdentifier}/actions/share | Warenkorbvorlage erstellen
+[**verifyRecommendCart**](AngeboteApi.md#verifyrecommendcart) | **POST** /carts/{cartIdentifier}/actions/recommendation/verify | Überprüfe PIN-Code von Empfehlung
 
 # **createQuoteFromCart**
-> createQuoteFromCart($cart_identifier, $recipient)
+> createQuoteFromCart($body, $cart_identifier)
 
 Angebot versenden
 
@@ -23,16 +22,16 @@ Erzeugt ein Angebot aus einem Warenkorb und verschickt dieses als PDF per Mail a
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\AngeboteApi(
+$apiInstance = new Mittwald\Api\Functions\AngeboteApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$body = new \Mittwald\Api\Model\Contact(); // \Mittwald\Api\Model\Contact | Empfänger
 $cart_identifier = "cart_identifier_example"; // string | Warenkorb ID
-$recipient = new \Mittwald\Api\Model\Contact(); // \Mittwald\Api\Model\Contact | Empfänger
 
 try {
-    $apiInstance->createQuoteFromCart($cart_identifier, $recipient);
+    $apiInstance->createQuoteFromCart($body, $cart_identifier);
 } catch (Exception $e) {
     echo 'Exception when calling AngeboteApi->createQuoteFromCart: ', $e->getMessage(), PHP_EOL;
 }
@@ -43,8 +42,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**\Mittwald\Api\Model\Contact**](../Model/Contact.md)| Empfänger |
  **cart_identifier** | **string**| Warenkorb ID |
- **recipient** | [**\Mittwald\Api\Model\Contact**](../Model/Contact.md)| Empfänger |
 
 ### Return type
 
@@ -56,8 +55,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Content-Type**: */*
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -73,7 +72,7 @@ Erstellt eine Vorlage aus einem Warenkorb mit Account-Ausgliederung. Vorlagen k�
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\AngeboteApi(
+$apiInstance = new Mittwald\Api\Functions\AngeboteApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -111,7 +110,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **requestQuote**
-> requestQuote($offer_request)
+> requestQuote($body)
 
 Neues Angebot anfordern
 
@@ -122,15 +121,15 @@ Neues Angebot anfordern
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\AngeboteApi(
+$apiInstance = new Mittwald\Api\Functions\AngeboteApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$offer_request = new \Mittwald\Api\Model\OfferRequest(); // \Mittwald\Api\Model\OfferRequest | Die Angebotsanfrage; diese enthält Daten zu den angefragten Artikeln sowie notwendige Kundenstammdaten
+$body = new \Mittwald\Api\Model\OfferRequest(); // \Mittwald\Api\Model\OfferRequest | Die Angebotsanfrage; diese enthält Daten zu den angefragten Artikeln sowie notwendige Kundenstammdaten
 
 try {
-    $apiInstance->requestQuote($offer_request);
+    $apiInstance->requestQuote($body);
 } catch (Exception $e) {
     echo 'Exception when calling AngeboteApi->requestQuote: ', $e->getMessage(), PHP_EOL;
 }
@@ -141,7 +140,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **offer_request** | [**\Mittwald\Api\Model\OfferRequest**](../Model/OfferRequest.md)| Die Angebotsanfrage; diese enthält Daten zu den angefragten Artikeln sowie notwendige Kundenstammdaten |
+ **body** | [**\Mittwald\Api\Model\OfferRequest**](../Model/OfferRequest.md)| Die Angebotsanfrage; diese enthält Daten zu den angefragten Artikeln sowie notwendige Kundenstammdaten |
 
 ### Return type
 
@@ -153,7 +152,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -170,7 +169,7 @@ Erstellt eine Vorlage aus einem Warenkorb. Vorlagen können nicht bearbeitet wer
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\AngeboteApi(
+$apiInstance = new Mittwald\Api\Functions\AngeboteApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -208,7 +207,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **verifyRecommendCart**
-> \Mittwald\Api\Model\Message verifyRecommendCart($cart_identifier, $payload)
+> \Mittwald\Api\Model\Message verifyRecommendCart($body, $cart_identifier)
 
 Überprüfe PIN-Code von Empfehlung
 
@@ -219,16 +218,16 @@ No authorization required
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\AngeboteApi(
+$apiInstance = new Mittwald\Api\Functions\AngeboteApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$body = new \Mittwald\Api\Model\FormularBody2(); // \Mittwald\Api\Model\FormularBody2 | 
 $cart_identifier = "cart_identifier_example"; // string | Warenkorb ID
-$payload = new \Mittwald\Api\Model\FormularBody2(); // \Mittwald\Api\Model\FormularBody2 | 
 
 try {
-    $result = $apiInstance->verifyRecommendCart($cart_identifier, $payload);
+    $result = $apiInstance->verifyRecommendCart($body, $cart_identifier);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AngeboteApi->verifyRecommendCart: ', $e->getMessage(), PHP_EOL;
@@ -240,8 +239,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**\Mittwald\Api\Model\FormularBody2**](../Model/FormularBody2.md)|  |
  **cart_identifier** | **string**| Warenkorb ID |
- **payload** | [**\Mittwald\Api\Model\FormularBody2**](../Model/FormularBody2.md)|  |
 
 ### Return type
 
@@ -253,7 +252,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

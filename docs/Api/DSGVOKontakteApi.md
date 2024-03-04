@@ -4,13 +4,12 @@ All URIs are relative to *https://api.mittwald.de/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createGDPRContact**](DSGVOKontakteApi.md#createGDPRContact) | **POST** /gdpr/contacts | Kontakt - Adressdaten anlegen
-[**getGDPRContact**](DSGVOKontakteApi.md#getGDPRContact) | **GET** /gdpr/contacts/{contactIdentifier} | Kontakt - Liefert einen bestimmten Adressdatensatz
-[**getGDPRContacts**](DSGVOKontakteApi.md#getGDPRContacts) | **GET** /gdpr/contacts | Kontakt - Liefert alle hinterlegten Adressdaten
-
+[**createGDPRContact**](DSGVOKontakteApi.md#creategdprcontact) | **POST** /gdpr/contacts | Kontakt - Adressdaten anlegen
+[**getGDPRContact**](DSGVOKontakteApi.md#getgdprcontact) | **GET** /gdpr/contacts/{contactIdentifier} | Kontakt - Liefert einen bestimmten Adressdatensatz
+[**getGDPRContacts**](DSGVOKontakteApi.md#getgdprcontacts) | **GET** /gdpr/contacts | Kontakt - Liefert alle hinterlegten Adressdaten
 
 # **createGDPRContact**
-> \Mittwald\Api\Model\GDPRContact createGDPRContact($create_gdpr_contact_request)
+> \Mittwald\Api\Model\GDPRContact createGDPRContact($body)
 
 Kontakt - Adressdaten anlegen
 
@@ -21,15 +20,15 @@ Legt einen Adressdatensatz mit den angegebenen Daten an
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\DSGVOKontakteApi(
+$apiInstance = new Mittwald\Api\Functions\DSGVOKontakteApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$create_gdpr_contact_request = new \Mittwald\Api\Model\GDPRContact(); // \Mittwald\Api\Model\GDPRContact | Die Adressdaten
+$body = new \Mittwald\Api\Model\GDPRContact(); // \Mittwald\Api\Model\GDPRContact | Die Adressdaten
 
 try {
-    $result = $apiInstance->createGDPRContact($create_gdpr_contact_request);
+    $result = $apiInstance->createGDPRContact($body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DSGVOKontakteApi->createGDPRContact: ', $e->getMessage(), PHP_EOL;
@@ -41,7 +40,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_gdpr_contact_request** | [**\Mittwald\Api\Model\GDPRContact**](../Model/GDPRContact.md)| Die Adressdaten |
+ **body** | [**\Mittwald\Api\Model\GDPRContact**](../Model/GDPRContact.md)| Die Adressdaten |
 
 ### Return type
 
@@ -53,7 +52,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -70,7 +69,7 @@ Liefert die Daten eines bestimmten Adressdatensatzes
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\DSGVOKontakteApi(
+$apiInstance = new Mittwald\Api\Functions\DSGVOKontakteApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -119,7 +118,7 @@ Liefert die Daten aller hinterlegten Adressdaten
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\DSGVOKontakteApi(
+$apiInstance = new Mittwald\Api\Functions\DSGVOKontakteApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()

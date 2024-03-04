@@ -4,11 +4,10 @@ All URIs are relative to *https://api.mittwald.de/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getArticle**](ArtikelApi.md#getArticle) | **GET** /articles/{articleNumber} | Artikeldetails
-[**getArticleUpgrades**](ArtikelApi.md#getArticleUpgrades) | **GET** /articles/{articleNumber}/upgrades | Artikel Upgrades
-[**getCrossSellingOptions**](ArtikelApi.md#getCrossSellingOptions) | **GET** /articles/{articleNumber}/cross-selling | Cross-Selling Optionen
-[**listArticles**](ArtikelApi.md#listArticles) | **GET** /articles | Suche nach Artikeln
-
+[**getArticle**](ArtikelApi.md#getarticle) | **GET** /articles/{articleNumber} | Artikeldetails
+[**getArticleUpgrades**](ArtikelApi.md#getarticleupgrades) | **GET** /articles/{articleNumber}/upgrades | Artikel Upgrades
+[**getCrossSellingOptions**](ArtikelApi.md#getcrosssellingoptions) | **GET** /articles/{articleNumber}/cross-selling | Cross-Selling Optionen
+[**listArticles**](ArtikelApi.md#listarticles) | **GET** /articles | Suche nach Artikeln
 
 # **getArticle**
 > \Mittwald\Api\Model\Article getArticle($article_number, $fields)
@@ -22,7 +21,7 @@ Artikeldetails auslesen
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\ArtikelApi(
+$apiInstance = new Mittwald\Api\Functions\ArtikelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -73,7 +72,7 @@ Liefert alle möglichen Upgrades für diesen Artikel aus
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\ArtikelApi(
+$apiInstance = new Mittwald\Api\Functions\ArtikelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -122,7 +121,7 @@ Liefert alle möglichen Cross-Selling Artikel aus
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\ArtikelApi(
+$apiInstance = new Mittwald\Api\Functions\ArtikelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -171,7 +170,7 @@ Diese Operation liefert eine Liste von Artikeln zurück, die den angegebenen Suc
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\ArtikelApi(
+$apiInstance = new Mittwald\Api\Functions\ArtikelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()

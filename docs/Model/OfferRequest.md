@@ -7,6 +7,5 @@ Name | Type | Description | Notes
 **articles** | [**\Mittwald\Api\Model\OfferRequestArticles**](OfferRequestArticles.md) |  | 
 **is_technical_admin_for_recipient** | **bool** |  | [optional] [default to false]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
-
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

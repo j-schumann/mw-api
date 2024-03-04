@@ -4,14 +4,13 @@ All URIs are relative to *https://api.mittwald.de/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**answerSupportTicket**](TicketsApi.md#answerSupportTicket) | **POST** /tickets/{ticketIdentifier}/answers | Ticketantwort erstellen
-[**createSupportTicket**](TicketsApi.md#createSupportTicket) | **POST** /tickets | Neues Support-Ticket
-[**listSupportTicketAnswers**](TicketsApi.md#listSupportTicketAnswers) | **GET** /tickets/{ticketIdentifier}/answers | Ticketantworten auslesen
-[**listSupportTickets**](TicketsApi.md#listSupportTickets) | **GET** /customers/{customerNumber}/tickets | Support-Tickets auslesen
-
+[**answerSupportTicket**](TicketsApi.md#answersupportticket) | **POST** /tickets/{ticketIdentifier}/answers | Ticketantwort erstellen
+[**createSupportTicket**](TicketsApi.md#createsupportticket) | **POST** /tickets | Neues Support-Ticket
+[**listSupportTicketAnswers**](TicketsApi.md#listsupportticketanswers) | **GET** /tickets/{ticketIdentifier}/answers | Ticketantworten auslesen
+[**listSupportTickets**](TicketsApi.md#listsupporttickets) | **GET** /customers/{customerNumber}/tickets | Support-Tickets auslesen
 
 # **answerSupportTicket**
-> \Mittwald\Api\Model\TicketAnswer answerSupportTicket($ticket_identifier, $answer)
+> \Mittwald\Api\Model\TicketAnswer answerSupportTicket($body, $ticket_identifier)
 
 Ticketantwort erstellen
 
@@ -22,16 +21,16 @@ Erstellt eine neue Antwort auf ein Support-Ticket
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\TicketsApi(
+$apiInstance = new Mittwald\Api\Functions\TicketsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$ticket_identifier = new \stdClass; // object | Die Ticket-ID
-$answer = new \Mittwald\Api\Model\TicketAnswerInput(); // \Mittwald\Api\Model\TicketAnswerInput | Die neue Antwort
+$body = new \Mittwald\Api\Model\TicketAnswerInput(); // \Mittwald\Api\Model\TicketAnswerInput | Die neue Antwort
+$ticket_identifier = new \Mittwald\Api\Model\null(); //  | Die Ticket-ID
 
 try {
-    $result = $apiInstance->answerSupportTicket($ticket_identifier, $answer);
+    $result = $apiInstance->answerSupportTicket($body, $ticket_identifier);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TicketsApi->answerSupportTicket: ', $e->getMessage(), PHP_EOL;
@@ -43,8 +42,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ticket_identifier** | [**object**](../Model/.md)| Die Ticket-ID |
- **answer** | [**\Mittwald\Api\Model\TicketAnswerInput**](../Model/TicketAnswerInput.md)| Die neue Antwort |
+ **body** | [**\Mittwald\Api\Model\TicketAnswerInput**](../Model/TicketAnswerInput.md)| Die neue Antwort |
+ **ticket_identifier** | [****](../Model/.md)| Die Ticket-ID |
 
 ### Return type
 
@@ -56,13 +55,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createSupportTicket**
-> \Mittwald\Api\Model\Ticket createSupportTicket($ticket)
+> \Mittwald\Api\Model\Ticket createSupportTicket($body)
 
 Neues Support-Ticket
 
@@ -73,15 +72,15 @@ Erstellt ein neues Support-Ticket
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\TicketsApi(
+$apiInstance = new Mittwald\Api\Functions\TicketsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$ticket = new \Mittwald\Api\Model\TicketInput(); // \Mittwald\Api\Model\TicketInput | Das neue Support-Ticket
+$body = new \Mittwald\Api\Model\TicketInput(); // \Mittwald\Api\Model\TicketInput | Das neue Support-Ticket
 
 try {
-    $result = $apiInstance->createSupportTicket($ticket);
+    $result = $apiInstance->createSupportTicket($body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TicketsApi->createSupportTicket: ', $e->getMessage(), PHP_EOL;
@@ -93,7 +92,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ticket** | [**\Mittwald\Api\Model\TicketInput**](../Model/TicketInput.md)| Das neue Support-Ticket |
+ **body** | [**\Mittwald\Api\Model\TicketInput**](../Model/TicketInput.md)| Das neue Support-Ticket |
 
 ### Return type
 
@@ -105,7 +104,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -122,12 +121,12 @@ Liefert alle Antworten auf ein bestimmtes Support-Ticket zurück
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\TicketsApi(
+$apiInstance = new Mittwald\Api\Functions\TicketsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$ticket_identifier = new \stdClass; // object | Die Ticket-ID
+$ticket_identifier = new \Mittwald\Api\Model\null(); //  | Die Ticket-ID
 
 try {
     $result = $apiInstance->listSupportTicketAnswers($ticket_identifier);
@@ -142,7 +141,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ticket_identifier** | [**object**](../Model/.md)| Die Ticket-ID |
+ **ticket_identifier** | [****](../Model/.md)| Die Ticket-ID |
 
 ### Return type
 
@@ -171,12 +170,12 @@ Listet Support-Tickets eines Kunden auf
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\TicketsApi(
+$apiInstance = new Mittwald\Api\Functions\TicketsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$customer_number = new \stdClass; // object | Die Kundennummer
+$customer_number = new \Mittwald\Api\Model\null(); //  | Die Kundennummer
 
 try {
     $result = $apiInstance->listSupportTickets($customer_number);
@@ -191,7 +190,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer_number** | [**object**](../Model/.md)| Die Kundennummer |
+ **customer_number** | [****](../Model/.md)| Die Kundennummer |
 
 ### Return type
 

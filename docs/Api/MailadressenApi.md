@@ -4,8 +4,7 @@ All URIs are relative to *https://api.mittwald.de/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listEmailAddressesByAccount**](MailadressenApi.md#listEmailAddressesByAccount) | **GET** /accounts/{accountIdentifier}/mailaddresses | Mailadressen eines Accounts auslesen
-
+[**listEmailAddressesByAccount**](MailadressenApi.md#listemailaddressesbyaccount) | **GET** /accounts/{accountIdentifier}/mailaddresses | Mailadressen eines Accounts auslesen
 
 # **listEmailAddressesByAccount**
 > \Mittwald\Api\Model\MailAddress[] listEmailAddressesByAccount($account_identifier, $limit, $offset)
@@ -19,7 +18,7 @@ Diese Operation liest die Mailadressen eines einzelnen Accounts aus
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\MailadressenApi(
+$apiInstance = new Mittwald\Api\Functions\MailadressenApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()

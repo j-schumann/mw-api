@@ -4,12 +4,11 @@ All URIs are relative to *https://api.mittwald.de/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**orderPartnerBox**](PartnerApi.md#orderPartnerBox) | **POST** /orders/partnerbox | Bestellung eines Partnerbox
-[**orderPartnerProgram**](PartnerApi.md#orderPartnerProgram) | **POST** /orders/partnerprogram | Anmeldung am Partnerprogramm
-
+[**orderPartnerBox**](PartnerApi.md#orderpartnerbox) | **POST** /orders/partnerbox | Bestellung eines Partnerbox
+[**orderPartnerProgram**](PartnerApi.md#orderpartnerprogram) | **POST** /orders/partnerprogram | Anmeldung am Partnerprogramm
 
 # **orderPartnerBox**
-> orderPartnerBox($partner_hosting_order_request)
+> orderPartnerBox($body)
 
 Bestellung eines Partnerbox
 
@@ -20,15 +19,15 @@ Bestellung eines Partnerbox
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\PartnerApi(
+$apiInstance = new Mittwald\Api\Functions\PartnerApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$partner_hosting_order_request = new \Mittwald\Api\Model\PartnerHostingOrderRequest(); // \Mittwald\Api\Model\PartnerHostingOrderRequest | Die Bestellanfrage; diese enthält notwendige Kundenstammdaten
+$body = new \Mittwald\Api\Model\PartnerHostingOrderRequest(); // \Mittwald\Api\Model\PartnerHostingOrderRequest | Die Bestellanfrage; diese enthält notwendige Kundenstammdaten
 
 try {
-    $apiInstance->orderPartnerBox($partner_hosting_order_request);
+    $apiInstance->orderPartnerBox($body);
 } catch (Exception $e) {
     echo 'Exception when calling PartnerApi->orderPartnerBox: ', $e->getMessage(), PHP_EOL;
 }
@@ -39,7 +38,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **partner_hosting_order_request** | [**\Mittwald\Api\Model\PartnerHostingOrderRequest**](../Model/PartnerHostingOrderRequest.md)| Die Bestellanfrage; diese enthält notwendige Kundenstammdaten |
+ **body** | [**\Mittwald\Api\Model\PartnerHostingOrderRequest**](../Model/PartnerHostingOrderRequest.md)| Die Bestellanfrage; diese enthält notwendige Kundenstammdaten |
 
 ### Return type
 
@@ -51,13 +50,13 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **orderPartnerProgram**
-> orderPartnerProgram($partner_hosting_order_request)
+> orderPartnerProgram($body)
 
 Anmeldung am Partnerprogramm
 
@@ -68,15 +67,15 @@ Anmeldung am Partnerprogramm
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Mittwald\Api\Api\PartnerApi(
+$apiInstance = new Mittwald\Api\Functions\PartnerApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$partner_hosting_order_request = new \Mittwald\Api\Model\PartnerHostingOrderRequest(); // \Mittwald\Api\Model\PartnerHostingOrderRequest | Die Bestellanfrage; diese enthält notwendige Kundenstammdaten
+$body = new \Mittwald\Api\Model\PartnerHostingOrderRequest(); // \Mittwald\Api\Model\PartnerHostingOrderRequest | Die Bestellanfrage; diese enthält notwendige Kundenstammdaten
 
 try {
-    $apiInstance->orderPartnerProgram($partner_hosting_order_request);
+    $apiInstance->orderPartnerProgram($body);
 } catch (Exception $e) {
     echo 'Exception when calling PartnerApi->orderPartnerProgram: ', $e->getMessage(), PHP_EOL;
 }
@@ -87,7 +86,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **partner_hosting_order_request** | [**\Mittwald\Api\Model\PartnerHostingOrderRequest**](../Model/PartnerHostingOrderRequest.md)| Die Bestellanfrage; diese enthält notwendige Kundenstammdaten |
+ **body** | [**\Mittwald\Api\Model\PartnerHostingOrderRequest**](../Model/PartnerHostingOrderRequest.md)| Die Bestellanfrage; diese enthält notwendige Kundenstammdaten |
 
 ### Return type
 
@@ -99,7 +98,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: */*
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
